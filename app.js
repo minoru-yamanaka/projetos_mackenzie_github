@@ -131,6 +131,8 @@ const serverStatusEl = document.getElementById("server-status");
 
 const searchInput = document.getElementById("search-input");
 const techFilter = document.getElementById("tech-filter");
+const collaboratorFilter = document.getElementById("collaborator-filter");
+const creationTimeFilter = document.getElementById("creation-time-filter");
 const sortSelect = document.getElementById("sort-select");
 const btnResetFilters = document.getElementById("btn-reset-filters");
 
@@ -146,6 +148,7 @@ const inputId = document.getElementById("project-id");
 const inputName = document.getElementById("project-name");
 const inputDescription = document.getElementById("project-description");
 const inputTechs = document.getElementById("project-techs");
+const inputCollaborators = document.getElementById("project-collaborators");
 const inputCreationDate = document.getElementById("project-creation-date");
 const inputUpdateDate = document.getElementById("project-update-date");
 
@@ -162,9 +165,11 @@ const inputNewDirName = document.getElementById("project-new-dir-name");
 const metricsAccordion = document.getElementById("metrics-accordion");
 const btnToggleMetrics = document.getElementById("btn-toggle-metrics");
 const metricsPanel = document.getElementById("metrics-panel");
+const metricWeeklyCount = document.getElementById("metric-weekly-count");
 const metricMonthlyCount = document.getElementById("metric-monthly-count");
 const metricSemiannualCount = document.getElementById("metric-semiannual-count");
 const metricAnnualCount = document.getElementById("metric-annual-count");
+const metricWeeklyProgress = document.getElementById("metric-weekly-progress");
 const metricMonthlyProgress = document.getElementById("metric-monthly-progress");
 const metricSemiannualProgress = document.getElementById("metric-semiannual-progress");
 const metricAnnualProgress = document.getElementById("metric-annual-progress");
@@ -177,6 +182,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateDashboardStats();
     updateMetrics();
     populateTechFilterOptions();
+    populateCollaboratorFilterOptions();
     populateLocalDirOptions();
     renderProjects();
     lucide.createIcons();
@@ -242,6 +248,8 @@ function setupEventListeners() {
     // Pesquisa e Filtros
     searchInput.addEventListener("input", renderProjects);
     techFilter.addEventListener("change", renderProjects);
+    collaboratorFilter.addEventListener("change", renderProjects);
+    creationTimeFilter.addEventListener("change", renderProjects);
     sortSelect.addEventListener("change", renderProjects);
     btnResetFilters.addEventListener("click", resetFilters);
 
@@ -296,6 +304,9 @@ function setupEventListeners() {
             closeModal();
         }
     });
+
+    // Inicializa sugestão de colaboradores
+    setupCollaboratorsAutocomplete();
 }
 
 // Trata a alteração visual dos inputs de opção de pasta física
@@ -327,7 +338,11 @@ function handleFolderOptionChange() {
 function resetFilters() {
     searchInput.value = "";
     techFilter.value = "";
+    if (collaboratorFilter) collaboratorFilter.value = "";
+    if (creationTimeFilter) creationTimeFilter.value = "";
     sortSelect.value = "recent";
+    activeRecencyFilter = null;
+    updateMetricRowHighlight();
     renderProjects();
 }
 
@@ -358,6 +373,108 @@ function populateTechFilterOptions() {
     });
 }
 
+// Popula o dropdown de filtro de colaboradores dinamicamente sem duplicar por case sensitiveness
+function populateCollaboratorFilterOptions() {
+    const collabMap = new Map(); // chave: minúsculo, valor: formato original (primeira ocorrência)
+    projects.forEach(p => {
+        if (p.collaborators) {
+            p.collaborators.forEach(c => {
+                const trimmed = c.trim();
+                const lower = trimmed.toLowerCase();
+                if (!collabMap.has(lower) && trimmed.length > 0) {
+                    collabMap.set(lower, trimmed);
+                }
+            });
+        }
+    });
+
+    const currentVal = collaboratorFilter ? collaboratorFilter.value : "";
+    if (collaboratorFilter) {
+        collaboratorFilter.innerHTML = '<option value="">Todos</option>';
+        const sortedCollabs = Array.from(collabMap.values()).sort((a, b) => a.localeCompare(b));
+        sortedCollabs.forEach(collab => {
+            const option = document.createElement("option");
+            option.value = collab;
+            option.textContent = collab;
+            collaboratorFilter.appendChild(option);
+        });
+        if (sortedCollabs.includes(currentVal)) {
+            collaboratorFilter.value = currentVal;
+        }
+    }
+}
+
+// Configura o Autocomplete / Sugestões para o campo de colaboradores (case insensitive)
+function setupCollaboratorsAutocomplete() {
+    const suggestionsContainer = document.getElementById("collab-suggestions");
+    if (!inputCollaborators || !suggestionsContainer) return;
+
+    inputCollaborators.addEventListener("input", () => {
+        const value = inputCollaborators.value;
+        const terms = value.split(",").map(t => t.trim());
+        const currentTerm = terms[terms.length - 1].toLowerCase();
+
+        // Oculta a caixa se o termo atual estiver vazio
+        if (!currentTerm) {
+            suggestionsContainer.classList.add("hidden");
+            return;
+        }
+
+        // Coleta todos os colaboradores únicos da base, sem distinção de case
+        const collabMap = new Map();
+        projects.forEach(p => {
+            if (p.collaborators) {
+                p.collaborators.forEach(c => {
+                    const trimmed = c.trim();
+                    if (trimmed.length > 0) {
+                        collabMap.set(trimmed.toLowerCase(), trimmed);
+                    }
+                });
+            }
+        });
+
+        // Filtra os colaboradores que dão match com o termo atual digitado
+        const matches = Array.from(collabMap.values()).filter(collab => {
+            // Verifica se o colaborador atual já foi totalmente digitado no campo de termos anteriores
+            const alreadyTyped = terms.slice(0, -1).some(t => t.toLowerCase() === collab.toLowerCase());
+            return collab.toLowerCase().includes(currentTerm) && !alreadyTyped;
+        });
+
+        if (matches.length === 0) {
+            suggestionsContainer.classList.add("hidden");
+            return;
+        }
+
+        // Limpa e renderiza os itens sugeridos na caixinha
+        suggestionsContainer.innerHTML = "";
+        matches.forEach(match => {
+            const div = document.createElement("div");
+            div.className = "suggestion-item";
+            div.textContent = match;
+            div.addEventListener("click", () => {
+                // Substitui a última porção digitada pelo nome completo sugerido
+                terms[terms.length - 1] = match;
+                inputCollaborators.value = terms.join(", ") + ", ";
+                suggestionsContainer.classList.add("hidden");
+                inputCollaborators.focus();
+            });
+            suggestionsContainer.appendChild(div);
+        });
+
+        suggestionsContainer.classList.remove("hidden");
+    });
+
+    // Oculta a caixinha de sugestões ao clicar fora do input ou do container de sugestões
+    document.addEventListener("click", (e) => {
+        if (e.target !== inputCollaborators && e.target !== suggestionsContainer) {
+            suggestionsContainer.classList.add("hidden");
+        }
+    });
+}
+
+
+
+
 // Popula o dropdown com as pastas locais do workspace
 function populateLocalDirOptions() {
     selectDirName.innerHTML = '<option value="">Selecione a pasta correspondente...</option>';
@@ -369,18 +486,26 @@ function populateLocalDirOptions() {
     });
 }
 
-// Renderiza os cards de projetos na tela aplicando buscas e filtros
 function renderProjects() {
     const query = searchInput.value.toLowerCase().trim();
     const selectedTech = techFilter.value;
+    const selectedCollaborator = collaboratorFilter ? collaboratorFilter.value : "";
+    const selectedCreationTime = creationTimeFilter ? creationTimeFilter.value : "";
     const sortOrder = sortSelect.value;
 
     let filtered = projects.filter(p => {
         const matchesQuery = p.name.toLowerCase().includes(query) || 
                              p.description.toLowerCase().includes(query);
         const matchesTech = !selectedTech || p.techs.some(t => t.trim().toLowerCase() === selectedTech.toLowerCase());
+        
+        const matchesCollaborator = !selectedCollaborator || (p.collaborators && p.collaborators.some(c => c.trim().toLowerCase() === selectedCollaborator.toLowerCase()));
+        
         const matchesRecency = !activeRecencyFilter || getRecencyStatus(p.date).class === activeRecencyFilter;
-        return matchesQuery && matchesTech && matchesRecency;
+        
+        // Filtro de tempo baseado no farol da data de criação
+        const matchesCreationTime = !selectedCreationTime || getRecencyStatus(p.creationDate || p.date).class === selectedCreationTime;
+        
+        return matchesQuery && matchesTech && matchesCollaborator && matchesRecency && matchesCreationTime;
     });
 
     if (sortOrder === "recent") {
@@ -443,6 +568,13 @@ function createProjectCard(project) {
             
             <p class="project-desc">${escapeHTML(project.description)}</p>
             
+            <!-- Colaboradores -->
+            ${project.collaborators && project.collaborators.length > 0 ? 
+                `<div class="card-collaborators" title="Colaboradores: ${escapeHTML(project.collaborators.join(', '))}">
+                    <i data-lucide="users"></i>
+                    <span>${escapeHTML(project.collaborators.join(', '))}</span>
+                 </div>` : ""}
+            
             <div class="card-footer">
                 <div class="tech-tags">
                     ${techTagsHTML}
@@ -490,6 +622,9 @@ function openModal(project = null) {
         inputName.value = project.name;
         inputDescription.value = project.description;
         inputTechs.value = project.techs.join(", ");
+        if (inputCollaborators) {
+            inputCollaborators.value = project.collaborators ? project.collaborators.join(", ") : "";
+        }
         inputCreationDate.value = project.creationDate || project.date;
         inputUpdateDate.value = project.date;
 
@@ -510,6 +645,9 @@ function openModal(project = null) {
         modalTitle.textContent = "Adicionar Novo Projeto";
         projectForm.reset();
         inputId.value = "";
+        if (inputCollaborators) {
+            inputCollaborators.value = "";
+        }
         
         const now = new Date();
         const year = now.getFullYear();
@@ -538,6 +676,7 @@ async function handleFormSubmit(e) {
     const name = inputName.value.trim();
     const description = inputDescription.value.trim();
     const techs = inputTechs.value.split(",").map(t => t.trim()).filter(t => t.length > 0);
+    const collaborators = inputCollaborators ? inputCollaborators.value.split(",").map(c => c.trim()).filter(c => c.length > 0) : [];
     const creationDate = inputCreationDate.value;
     const date = inputUpdateDate.value;
 
@@ -570,6 +709,7 @@ async function handleFormSubmit(e) {
         name,
         description,
         techs,
+        collaborators,
         creationDate,
         date,
         isLocalDir,
@@ -642,6 +782,7 @@ async function handleFormSubmit(e) {
     updateDashboardStats();
     updateMetrics();
     populateTechFilterOptions();
+    populateCollaboratorFilterOptions();
     renderProjects();
     closeModal();
 }
@@ -686,6 +827,7 @@ window.deleteProject = async function(id) {
     updateDashboardStats();
     updateMetrics();
     populateTechFilterOptions();
+    populateCollaboratorFilterOptions();
     renderProjects();
 };
 
@@ -752,13 +894,17 @@ function getRecencyStatus(dateString) {
     const diffTime = today - projectDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-    // Se o projeto for atualizado nos últimos 30 dias (Vermelho)
-    if (diffDays <= 30) {
-        return { class: "recente", label: "Recente" };
+    // Se o projeto for atualizado na semana (Vermelho)
+    if (diffDays <= 7) {
+        return { class: "semana", label: "Semana" };
+    }
+    // Se o projeto for atualizado nos últimos 30 dias (Laranja)
+    else if (diffDays <= 30) {
+        return { class: "recente", label: "Mês" };
     } 
     // Se o projeto for atualizado no intervalo médio de 31 a 180 dias (Amarelo)
     else if (diffDays <= 180) {
-        return { class: "medio", label: "Médio" };
+        return { class: "medio", label: "Semestre" };
     } 
     // Se for antigo, ou seja, mais de 180 dias sem atualizações (Verde)
     else {
@@ -771,24 +917,31 @@ function updateMetrics() {
     const total = projects.length;
     
     if (total === 0) {
+        metricWeeklyCount.textContent = "0";
         metricMonthlyCount.textContent = "0";
         metricSemiannualCount.textContent = "0";
         metricAnnualCount.textContent = "0";
+        metricWeeklyProgress.style.width = "0%";
         metricMonthlyProgress.style.width = "0%";
         metricSemiannualProgress.style.width = "0%";
         metricAnnualProgress.style.width = "0%";
         return;
     }
 
+    let weekly = 0;
     let monthly = 0;
     let semiannual = 0;
     let annual = 0;
 
     projects.forEach(p => {
         const status = getRecencyStatus(p.date).class;
-        if (status === "recente") {
+        if (status === "semana") {
+            weekly++;
             monthly++;
-            semiannual++; // projetos do mês também contam no semestre!
+            semiannual++;
+        } else if (status === "recente") {
+            monthly++;
+            semiannual++;
         } else if (status === "medio") {
             semiannual++;
         } else if (status === "antigo") {
@@ -797,16 +950,19 @@ function updateMetrics() {
     });
 
     // Atualiza contadores visuais
+    metricWeeklyCount.textContent = weekly;
     metricMonthlyCount.textContent = monthly;
     metricSemiannualCount.textContent = semiannual;
     metricAnnualCount.textContent = annual;
 
     // Calcula porcentagens de progresso
+    const weeklyPercent = (weekly / total) * 100;
     const monthlyPercent = (monthly / total) * 100;
     const semiannualPercent = (semiannual / total) * 100;
     const annualPercent = (annual / total) * 100;
 
     // Atualiza a largura das barras de progresso no DOM
+    metricWeeklyProgress.style.width = `${weeklyPercent}%`;
     metricMonthlyProgress.style.width = `${monthlyPercent}%`;
     metricSemiannualProgress.style.width = `${semiannualPercent}%`;
     metricAnnualProgress.style.width = `${annualPercent}%`;

@@ -75,17 +75,33 @@
                     </div>
                     <div class="filters-container">
                         <div class="filter-group">
-                            <label for="tech-filter"><i data-lucide="filter"></i> Tecnologia:</label>
-                            <select id="tech-filter">
-                                <option value="">Todas as Tecnologias</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
                             <label for="sort-select"><i data-lucide="arrow-up-down"></i> Ordenar:</label>
                             <select id="sort-select">
                                 <option value="recent">Mais Recentes</option>
                                 <option value="old">Mais Antigos</option>
                                 <option value="alpha">A-Z</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="creation-time-filter"><i data-lucide="calendar"></i> Tempo Criação:</label>
+                            <select id="creation-time-filter">
+                                <option value="">Todos</option>
+                                <option value="semana">Semana (últimos 7 dias)</option>
+                                <option value="recente">Mês (últimos 30 dias)</option>
+                                <option value="medio">Semestre (últimos 180 dias)</option>
+                                <option value="antigo">Estável (mais de 180 dias)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group filter-collab">
+                            <label for="collaborator-filter"><i data-lucide="users"></i> Colaborador:</label>
+                            <select id="collaborator-filter">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <div class="filter-group filter-tech">
+                            <label for="tech-filter"><i data-lucide="filter"></i> Tecnologia:</label>
+                            <select id="tech-filter">
+                                <option value="">Todas as Tecnologias</option>
                             </select>
                         </div>
                     </div>
@@ -102,11 +118,28 @@
                     </div>
 
                     <div class="control-metrics-items">
-                        <!-- Recente -->
+                        <!-- Semana -->
                         <button class="metric-row ctrl-metric ctrl-metric-red"
+                                id="metric-filter-semana" data-filter="semana"
+                                title="Filtrar projetos atualizados nos últimos 7 dias">
+                            <span class="ctrl-dot" style="background:#f43f5e;box-shadow:0 0 7px rgba(244,63,94,.8);animation:farol-pulse-red 2s infinite;"></span>
+                            <div class="ctrl-metric-info">
+                                <span class="ctrl-metric-name">Semana</span>
+                                <span class="ctrl-metric-desc">últimos 7 dias</span>
+                            </div>
+                            <span class="ctrl-metric-num" id="metric-weekly-count">0</span>
+                            <div class="ctrl-metric-bar">
+                                <div class="progress-fill metric-weekly-fill" id="metric-weekly-progress" style="width:0%"></div>
+                            </div>
+                        </button>
+
+                        <div class="ctrl-sep"></div>
+
+                        <!-- Recente (Mês) -->
+                        <button class="metric-row ctrl-metric ctrl-metric-orange"
                                 id="metric-filter-recente" data-filter="recente"
                                 title="Filtrar projetos atualizados nos últimos 30 dias">
-                            <span class="ctrl-dot" style="background:#f43f5e;box-shadow:0 0 7px rgba(244,63,94,.8);animation:farol-pulse-red 2s infinite;"></span>
+                            <span class="ctrl-dot" style="background:#f97316;box-shadow:0 0 7px rgba(249,115,22,.8);animation:farol-pulse-orange 2s infinite;"></span>
                             <div class="ctrl-metric-info">
                                 <span class="ctrl-metric-name">Mês</span>
                                 <span class="ctrl-metric-desc">últimos 30 dias</span>
@@ -119,7 +152,7 @@
 
                         <div class="ctrl-sep"></div>
 
-                        <!-- Médio -->
+                        <!-- Médio (Semestre) -->
                         <button class="metric-row ctrl-metric ctrl-metric-yellow"
                                 id="metric-filter-medio" data-filter="medio"
                                 title="Filtrar projetos atualizados nos últimos 180 dias">
@@ -136,7 +169,7 @@
 
                         <div class="ctrl-sep"></div>
 
-                        <!-- Antigo -->
+                        <!-- Antigo (Estáveis) -->
                         <button class="metric-row ctrl-metric ctrl-metric-green"
                                 id="metric-filter-antigo" data-filter="antigo"
                                 title="Filtrar projetos estáveis (mais de 180 dias)">
@@ -220,6 +253,12 @@
                 <div class="form-group">
                     <label for="project-techs">Tecnologias Usadas <span class="required">*</span> <span class="input-tip">(Separe por vírgulas)</span></label>
                     <input type="text" id="project-techs" required placeholder="Ex: Node.js, React, PostgreSQL, TailwindCSS">
+                </div>
+
+                <div class="form-group" style="position: relative;">
+                    <label for="project-collaborators">Colaboradores <span class="input-tip">(Separe por vírgulas)</span></label>
+                    <input type="text" id="project-collaborators" placeholder="Ex: Gabriel Yamanaka, Professor Silva, Minoru" autocomplete="off">
+                    <div class="autocomplete-suggestions hidden" id="collab-suggestions"></div>
                 </div>
 
                 <div class="form-row-2">
