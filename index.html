@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mackenzie Projects Hub - Gerenciador de Projetos</title>
+    <meta name="description" content="Dashboard moderno para gerenciamento de projetos do Mackenzie, listando nomes, descrições, tecnologias e datas de atualização.">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Estilos Customizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Superior (Menu Deitado/Horizontal) -->
+        <header class="sidebar">
+            <div class="header-left">
+                <div class="brand">
+                    <div class="brand-logo">
+                        <i data-lucide="graduation-cap" class="logo-icon"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Mackenzie</h1>
+                        <span>Projects Hub</span>
+                    </div>
+                </div>
+
+                <!-- Status de Conexão com o Servidor Local -->
+                <div class="server-status-badge offline" id="server-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Modo LocalStorage</span>
+                </div>
+            </div>
+
+            <!-- Painel de Estatísticas -->
+            <div class="stats-panel">
+                <h2>Estatísticas</h2>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <span class="stat-label">Total de Projetos</span>
+                        <span class="stat-value" id="total-projects">0</span>
+                    </div>
+                    <i data-lucide="folder-kanban" class="stat-icon text-purple"></i>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <span class="stat-label">Tecnologias</span>
+                        <span class="stat-value" id="total-techs">0</span>
+                    </div>
+                    <i data-lucide="code" class="stat-icon text-cyan"></i>
+                </div>
+            </div>
+
+            <!-- Botão de Ação Principal -->
+            <button class="btn btn-primary btn-add-project" id="btn-open-modal">
+                <i data-lucide="plus-circle"></i>
+                <span>Novo Projeto</span>
+            </button>
+        </header>
+
+        <!-- Área Principal de Conteúdo -->
+        <main class="main-content">
+            <!-- Card unificado: Filtros + Indicadores de Frequência -->
+            <div class="control-card" id="metrics-accordion">
+
+                <!-- Linha 1: Busca e Filtros -->
+                <div class="control-row">
+                    <div class="search-bar">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Pesquisar projetos por nome ou descrição...">
+                    </div>
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label for="tech-filter"><i data-lucide="filter"></i> Tecnologia:</label>
+                            <select id="tech-filter">
+                                <option value="">Todas as Tecnologias</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="sort-select"><i data-lucide="arrow-up-down"></i> Ordenar:</label>
+                            <select id="sort-select">
+                                <option value="recent">Mais Recentes</option>
+                                <option value="old">Mais Antigos</option>
+                                <option value="alpha">A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divisor -->
+                <div class="control-divider"></div>
+
+                <!-- Linha 2: Indicadores de Frequência -->
+                <div class="control-metrics">
+                    <div class="control-metrics-label">
+                        <i data-lucide="activity"></i>
+                        <span>Frequência</span>
+                    </div>
+
+                    <div class="control-metrics-items">
+                        <!-- Recente -->
+                        <button class="metric-row ctrl-metric ctrl-metric-red"
+                                id="metric-filter-recente" data-filter="recente"
+                                title="Filtrar projetos atualizados nos últimos 30 dias">
+                            <span class="ctrl-dot" style="background:#f43f5e;box-shadow:0 0 7px rgba(244,63,94,.8);animation:farol-pulse-red 2s infinite;"></span>
+                            <div class="ctrl-metric-info">
+                                <span class="ctrl-metric-name">Mês</span>
+                                <span class="ctrl-metric-desc">últimos 30 dias</span>
+                            </div>
+                            <span class="ctrl-metric-num" id="metric-monthly-count">0</span>
+                            <div class="ctrl-metric-bar">
+                                <div class="progress-fill metric-monthly-fill" id="metric-monthly-progress" style="width:0%"></div>
+                            </div>
+                        </button>
+
+                        <div class="ctrl-sep"></div>
+
+                        <!-- Médio -->
+                        <button class="metric-row ctrl-metric ctrl-metric-yellow"
+                                id="metric-filter-medio" data-filter="medio"
+                                title="Filtrar projetos atualizados nos últimos 180 dias">
+                            <span class="ctrl-dot" style="background:#fbbf24;box-shadow:0 0 7px rgba(251,191,36,.8);animation:farol-pulse-yellow 2s infinite;"></span>
+                            <div class="ctrl-metric-info">
+                                <span class="ctrl-metric-name">Semestre</span>
+                                <span class="ctrl-metric-desc">31 a 180 dias</span>
+                            </div>
+                            <span class="ctrl-metric-num" id="metric-semiannual-count">0</span>
+                            <div class="ctrl-metric-bar">
+                                <div class="progress-fill metric-semiannual-fill" id="metric-semiannual-progress" style="width:0%"></div>
+                            </div>
+                        </button>
+
+                        <div class="ctrl-sep"></div>
+
+                        <!-- Antigo -->
+                        <button class="metric-row ctrl-metric ctrl-metric-green"
+                                id="metric-filter-antigo" data-filter="antigo"
+                                title="Filtrar projetos estáveis (mais de 180 dias)">
+                            <span class="ctrl-dot" style="background:#34d399;box-shadow:0 0 7px rgba(52,211,153,.8);animation:farol-pulse-green 2s infinite;"></span>
+                            <div class="ctrl-metric-info">
+                                <span class="ctrl-metric-name">Estáveis</span>
+                                <span class="ctrl-metric-desc">mais de 180 dias</span>
+                            </div>
+                            <span class="ctrl-metric-num" id="metric-annual-count">0</span>
+                            <div class="ctrl-metric-bar">
+                                <div class="progress-fill metric-annual-fill" id="metric-annual-progress" style="width:0%"></div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Botão limpar filtro -->
+                    <button class="ctrl-clear" id="btn-clear-recency-filter" style="display:none;" title="Limpar filtro de frequência">
+                        <i data-lucide="x-circle"></i>
+                        <span>Limpar</span>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- Seção dos Cards de Projetos -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2>Meus Projetos</h2>
+                    <span class="projects-count-badge" id="visible-projects-count">Apenas 0 exibidos</span>
+                </div>
+
+                <!-- Grid dos cards -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Cards serão injetados dinamicamente via JS -->
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Carregando projetos...</p>
+                    </div>
+                </div>
+
+                <!-- Estado Vazio (Caso não encontre projetos no filtro) -->
+                <div class="empty-state hidden" id="empty-state">
+                    <i data-lucide="folder-open" class="empty-icon"></i>
+                    <h3>Nenhum projeto encontrado</h3>
+                    <p>Tente ajustar a busca, alterar o filtro de tecnologias ou cadastrar um novo projeto.</p>
+                    <button class="btn btn-secondary" id="btn-reset-filters">Limpar Filtros</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Desenvolvido para Mackenzie</p>
+            <span class="footer-version">v1.1.0</span>
+        </footer>
+    </div>
+
+    <!-- Modal para Adicionar / Editar Projeto -->
+    <div class="modal-overlay hidden" id="project-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title">Adicionar Novo Projeto</h2>
+                <button class="btn-close" id="btn-close-modal" aria-label="Fechar modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <form id="project-form" class="modal-body">
+                <!-- ID oculto para controle de edição -->
+                <input type="hidden" id="project-id">
+
+                <div class="form-group">
+                    <label for="project-name">Nome do Projeto <span class="required">*</span></label>
+                    <input type="text" id="project-name" required placeholder="Ex: Correção de Provas - Mackenzie">
+                </div>
+
+                <div class="form-group">
+                    <label for="project-description">Descrição <span class="required">*</span></label>
+                    <textarea id="project-description" required rows="4" placeholder="Descreva brevemente o objetivo do projeto, funcionalidades principais..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="project-techs">Tecnologias Usadas <span class="required">*</span> <span class="input-tip">(Separe por vírgulas)</span></label>
+                    <input type="text" id="project-techs" required placeholder="Ex: Node.js, React, PostgreSQL, TailwindCSS">
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="project-creation-date">Data de Criação <span class="required">*</span></label>
+                        <input type="date" id="project-creation-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-update-date">Data de Atualização <span class="required">*</span></label>
+                        <input type="date" id="project-update-date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Pasta Física no Workspace</label>
+                    <div class="folder-options">
+                        <label class="radio-container">
+                            <input type="radio" name="folder-option" value="none" checked id="folder-opt-none">
+                            <span class="radio-checkmark"></span>
+                            Apenas Registro (Sem pasta física)
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="folder-option" value="existing" id="folder-opt-existing">
+                            <span class="radio-checkmark"></span>
+                            Vincular a uma pasta local existente
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="folder-option" value="create" id="folder-opt-create">
+                            <span class="radio-checkmark"></span>
+                            Criar uma NOVA pasta física no disk
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Dropdown para pasta existente -->
+                <div class="form-group hidden" id="local-dir-group">
+                    <label for="project-dir-name">Nome da Pasta Local Existente</label>
+                    <select id="project-dir-name">
+                        <option value="">Selecione a pasta correspondente...</option>
+                        <!-- Pastas serão preenchidas dinamicamente via JS -->
+                    </select>
+                </div>
+
+                <!-- Input para nova pasta física -->
+                <div class="form-group hidden" id="new-dir-group">
+                    <label for="project-new-dir-name">Nome da Nova Pasta <span class="required">*</span> <span class="input-tip">(Prefixe com SITE_ para manter o padrão)</span></label>
+                    <input type="text" id="project-new-dir-name" placeholder="Ex: SITE_MEU_NOVO_PROJETO">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-form">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-save-project">
+                        <i data-lucide="save"></i>
+                        <span>Salvar Projeto</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

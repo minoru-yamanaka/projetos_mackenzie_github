@@ -1,0 +1,41 @@
+# =============================================================
+#  .gitignore — Mackenzie Projects Hub
+#  Estratégia: ignorar TUDO e liberar apenas o essencial
+# =============================================================
+
+# 1. Ignora absolutamente tudo por padrão
+*
+
+# 2. Libera os arquivos essenciais do dashboard
+!.gitignore
+!README.md
+!index.html
+!style.css
+!app.js
+!server.js
+
+# =============================================================
+#  O que NÃO sobe (exemplos explícitos para clareza):
+# =============================================================
+
+# Pastas físicas dos projetos (dados pessoais / código de outros projetos)
+SITE_*/
+
+# Banco de dados local com seus projetos cadastrados (dados pessoais)
+projects.json
+
+# Dependências (caso adicione npm no futuro)
+node_modules/
+
+# Logs do servidor
+*.log
+npm-debug.log*
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Variáveis de ambiente (segurança)
+.env
+.env.*
