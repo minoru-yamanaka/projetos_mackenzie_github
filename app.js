@@ -126,6 +126,7 @@ const projectsGrid = document.getElementById("projects-grid");
 const emptyState = document.getElementById("empty-state");
 const totalProjectsEl = document.getElementById("total-projects");
 const totalTechsEl = document.getElementById("total-techs");
+const totalCollaboratorsEl = document.getElementById("total-collaborators");
 const visibleProjectsCountEl = document.getElementById("visible-projects-count");
 const serverStatusEl = document.getElementById("server-status");
 
@@ -151,6 +152,8 @@ const inputTechs = document.getElementById("project-techs");
 const inputCollaborators = document.getElementById("project-collaborators");
 const inputCreationDate = document.getElementById("project-creation-date");
 const inputUpdateDate = document.getElementById("project-update-date");
+const inputRepoLink = document.getElementById("project-repo-link");
+const inputSiteLink = document.getElementById("project-site-link");
 
 // Opções de Pasta do Modal
 const radioOptNone = document.getElementById("folder-opt-none");
@@ -351,10 +354,22 @@ function updateDashboardStats() {
     totalProjectsEl.textContent = projects.length;
 
     const allTechs = new Set();
+    const allCollabs = new Set();
+
     projects.forEach(p => {
         p.techs.forEach(t => allTechs.add(t.trim().toLowerCase()));
+        if (p.collaborators) {
+            p.collaborators.forEach(c => {
+                const name = c.trim().toLowerCase();
+                if (name) allCollabs.add(name);
+            });
+        }
     });
+
     totalTechsEl.textContent = allTechs.size;
+    if (totalCollaboratorsEl) {
+        totalCollaboratorsEl.textContent = allCollabs.size;
+    }
 }
 
 // Popula o dropdown de filtro de tecnologia com as tags cadastradas
@@ -574,6 +589,33 @@ function createProjectCard(project) {
                     <i data-lucide="users"></i>
                     <span>${escapeHTML(project.collaborators.join(', '))}</span>
                  </div>` : ""}
+
+            <!-- Acesso Rápido -->
+            <div class="quick-links">
+                ${project.repoLink ? `
+                <a href="${escapeHTML(project.repoLink)}" target="_blank" class="quick-link-btn repo" onclick="registerAccess('${project.id}')" title="Acessar Repositório">
+                    <i data-lucide="github"></i>
+                    <span>Repositório</span>
+                </a>
+                ` : `
+                <span class="quick-link-btn repo disabled" title="Repositório não configurado">
+                    <i data-lucide="github"></i>
+                    <span>Repositório</span>
+                </span>
+                `}
+                
+                ${project.siteLink ? `
+                <a href="${escapeHTML(project.siteLink)}" target="_blank" class="quick-link-btn site" onclick="registerAccess('${project.id}')" title="Acessar Site">
+                    <i data-lucide="external-link"></i>
+                    <span>Visualizar Site</span>
+                </a>
+                ` : `
+                <span class="quick-link-btn site disabled" title="Site não configurado">
+                    <i data-lucide="external-link"></i>
+                    <span>Visualizar Site</span>
+                </span>
+                `}
+            </div>
             
             <div class="card-footer">
                 <div class="tech-tags">
@@ -591,6 +633,10 @@ function createProjectCard(project) {
                             <span class="update-date" title="Última atualização">
                                 <i data-lucide="calendar-range"></i>
                                 <span>Atualizado em: ${formattedDate}</span>
+                            </span>
+                            <span class="access-date" title="Último acesso ao projeto">
+                                <i data-lucide="clock"></i>
+                                <span>Último acesso: ${formatDateTime(project.lastAccessed)}</span>
                             </span>
                         </div>
                     </div>
@@ -627,6 +673,12 @@ function openModal(project = null) {
         }
         inputCreationDate.value = project.creationDate || project.date;
         inputUpdateDate.value = project.date;
+        if (inputRepoLink) {
+            inputRepoLink.value = project.repoLink || "";
+        }
+        if (inputSiteLink) {
+            inputSiteLink.value = project.siteLink || "";
+        }
 
         if (project.isLocalDir && project.dirName) {
             // Verifica se a pasta existe na lista local para decidir se exibe dropdown ou input de criação
@@ -647,6 +699,12 @@ function openModal(project = null) {
         inputId.value = "";
         if (inputCollaborators) {
             inputCollaborators.value = "";
+        }
+        if (inputRepoLink) {
+            inputRepoLink.value = "";
+        }
+        if (inputSiteLink) {
+            inputSiteLink.value = "";
         }
         
         const now = new Date();
@@ -671,7 +729,6 @@ function closeModal() {
 // Gerenciamento de Submissão do Formulário (API + Fallback LocalStorage)
 async function handleFormSubmit(e) {
     e.preventDefault();
-
     const id = inputId.value;
     const name = inputName.value.trim();
     const description = inputDescription.value.trim();
@@ -679,6 +736,8 @@ async function handleFormSubmit(e) {
     const collaborators = inputCollaborators ? inputCollaborators.value.split(",").map(c => c.trim()).filter(c => c.length > 0) : [];
     const creationDate = inputCreationDate.value;
     const date = inputUpdateDate.value;
+    const repoLink = inputRepoLink ? inputRepoLink.value.trim() : "";
+    const siteLink = inputSiteLink ? inputSiteLink.value.trim() : "";
 
     let isLocalDir = false;
     let dirName = "";
@@ -713,8 +772,17 @@ async function handleFormSubmit(e) {
         creationDate,
         date,
         isLocalDir,
-        dirName
+        dirName,
+        repoLink,
+        siteLink
     };
+
+    if (id) {
+        const existingProj = projects.find(p => p.id === id);
+        if (existingProj && existingProj.lastAccessed) {
+            projectData.lastAccessed = existingProj.lastAccessed;
+        }
+    }
 
     if (isServerConnected) {
         // Chamada de API para o Servidor Local Node.js
@@ -830,6 +898,50 @@ window.deleteProject = async function(id) {
     populateCollaboratorFilterOptions();
     renderProjects();
 };
+
+// Registra o acesso ao projeto pelo repositório ou pelo site
+window.registerAccess = async function(id) {
+    const now = new Date().toISOString();
+    
+    // Atualiza localmente a lista de projetos em memória
+    const idx = projects.findIndex(p => p.id === id);
+    if (idx !== -1) {
+        projects[idx].lastAccessed = now;
+    }
+    
+    if (isServerConnected) {
+        try {
+            await fetch(`/api/projects/access?id=${id}`, {
+                method: 'POST'
+            });
+        } catch (error) {
+            console.error("Erro ao registrar acesso no servidor local:", error);
+        }
+    } else {
+        // Fallback: LocalStorage
+        saveProjectsFallback();
+    }
+    
+    // Re-renderiza para atualizar o texto do card imediatamente
+    renderProjects();
+};
+
+function formatDateTime(isoString) {
+    if (!isoString) return "Nunca";
+    try {
+        const date = new Date(isoString);
+        if (isNaN(date.getTime())) return "Nunca";
+        
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${day}/${month}/${year} às ${hours}:${minutes}`;
+    } catch (e) {
+        return "Nunca";
+    }
+}
 
 // Funções de Utilitários
 function formatDate(dateString) {

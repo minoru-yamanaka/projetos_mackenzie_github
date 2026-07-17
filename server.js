@@ -141,27 +141,11 @@ const server = http.createServer((req, res) => {
 
     // --- ROTAS DA API ---
 
-    // GET /api/projects - Retorna todos os projetos com datas reais das pastas
+    // GET /api/projects - Retorna todos os projetos
     if (pathname === '/api/projects' && method === 'GET') {
         const projects = getProjects();
-
-        // Para cada projeto com pasta vinculada, lê as datas reais do sistema de arquivos
-        const enriched = projects.map(project => {
-            if (project.isLocalDir && project.dirName) {
-                const realDates = getFolderDates(project.dirName);
-                if (realDates) {
-                    return {
-                        ...project,
-                        date: realDates.date,
-                        creationDate: realDates.creationDate
-                    };
-                }
-            }
-            return project;
-        });
-
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(enriched));
+        res.end(JSON.stringify(projects));
         return;
     }
 
@@ -288,6 +272,38 @@ const server = http.createServer((req, res) => {
         } else {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Erro ao remover do arquivo.' }));
+        }
+        return;
+    }
+
+    // POST /api/projects/access - Registra o último acesso (espera /api/projects/access?id=...)
+    if (pathname === '/api/projects/access' && method === 'POST') {
+        const id = url.searchParams.get('id');
+        if (!id) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'ID do projeto não fornecido.' }));
+            return;
+        }
+
+        const projects = getProjects();
+        const index = projects.findIndex(p => p.id === id);
+
+        if (index === -1) {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Projeto não encontrado.' }));
+            return;
+        }
+
+        // Registra o acesso com a data/hora atual no formato ISO
+        const now = new Date();
+        projects[index].lastAccessed = now.toISOString();
+
+        if (saveProjects(projects)) {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true, lastAccessed: projects[index].lastAccessed }));
+        } else {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Erro ao registrar acesso no arquivo.' }));
         }
         return;
     }

@@ -53,6 +53,13 @@
                     </div>
                     <i data-lucide="code" class="stat-icon text-cyan"></i>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <span class="stat-label">Colaboradores</span>
+                        <span class="stat-value" id="total-collaborators">0</span>
+                    </div>
+                    <i data-lucide="users" class="stat-icon text-emerald"></i>
+                </div>
             </div>
 
             <!-- Botão de Ação Principal -->
@@ -259,6 +266,18 @@
                     <label for="project-collaborators">Colaboradores <span class="input-tip">(Separe por vírgulas)</span></label>
                     <input type="text" id="project-collaborators" placeholder="Ex: Gabriel Yamanaka, Professor Silva, Minoru" autocomplete="off">
                     <div class="autocomplete-suggestions hidden" id="collab-suggestions"></div>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="project-repo-link">Link do Repositório <span class="input-tip">(GitHub, GitLab...)</span></label>
+                        <input type="text" id="project-repo-link" placeholder="Ex: https://github.com/usuario/projeto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-site-link">Link do Projeto / Site <span class="input-tip">(Deploy, URL)</span></label>
+                        <input type="text" id="project-site-link" placeholder="Ex: https://projeto.vercel.app">
+                    </div>
                 </div>
 
                 <div class="form-row-2">
