@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "style.css", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "projects.json", "use": "@vercel/static" }
+  ],
   "rewrites": [
     { "source": "/api/projects", "destination": "/projects.json" }
   ]
