@@ -131,6 +131,550 @@ function getFolderDates(dirName) {
     }
 }
 
+// Limpa e formata o nome da pasta física para um nome amigável de projeto
+function cleanFolderNameToName(folderName) {
+    let name = folderName.replace(/^(SITE_|TP_)/i, '');
+    name = name.replace(/[_]/g, ' ');
+    name = name.replace(/\bCOPIA\b/gi, '(Cópia)');
+    name = name.replace(/\bDESENVOLVIMENTO\b/gi, 'Desenvolvimento');
+    return name.split(' ')
+        .map(word => {
+            if (word.startsWith('(')) {
+                return '(' + word.charAt(1).toUpperCase() + word.slice(2).toLowerCase();
+            }
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        })
+        .join(' ');
+}
+
+// Detecta se a pasta física contém bancos de dados e retorna os tipos (SQLite, MySQL, PostgreSQL, MongoDB, SQL)
+function detectDatabase(folderPath, folderName) {
+    const dbTechs = new Set();
+    
+    // Verifica se o nome da pasta sugere banco de dados
+    if (folderName.toLowerCase().endsWith('_db') || folderName.toLowerCase().includes('-db')) {
+        dbTechs.add('SQL');
+    }
+
+    try {
+        if (!fs.existsSync(folderPath)) return Array.from(dbTechs);
+        
+        const entries = fs.readdirSync(folderPath, { withFileTypes: true });
+        
+        // 1. Busca por dialetos explícitos nas variáveis de ambiente (.env) primeiro
+        let explicitDialect = null;
+        for (const entry of entries) {
+            if (entry.isFile() && entry.name.toLowerCase().startsWith('.env')) {
+                try {
+                    const envContent = fs.readFileSync(path.join(folderPath, entry.name), 'utf8');
+                    const dialectMatch = envContent.match(/DB_DIALECT\s*=\s*([a-zA-Z0-9_-]+)/i);
+                    if (dialectMatch && dialectMatch[1]) {
+                        const dialect = dialectMatch[1].toLowerCase().trim();
+                        if (dialect === 'mysql' || dialect === 'mariadb') explicitDialect = 'MySQL';
+                        else if (dialect === 'postgres' || dialect === 'postgresql') explicitDialect = 'PostgreSQL';
+                        else if (dialect === 'sqlite') explicitDialect = 'SQLite';
+                        else if (dialect === 'mssql') explicitDialect = 'SQL Server';
+                    }
+                } catch (_) {}
+            }
+        }
+
+        // 2. Faz a varredura normal
+        for (const entry of entries) {
+            const name = entry.name.toLowerCase();
+            const fullPath = path.join(folderPath, entry.name);
+            
+            if (entry.isFile()) {
+                const ext = path.extname(name);
+                
+                // Arquivos de banco locais
+                if (['.db', '.sqlite', '.sqlite3', '.db3', '.s3db', '.sl3'].includes(ext)) {
+                    dbTechs.add('SQLite');
+                    dbTechs.add('SQL');
+                } else if (ext === '.sql') {
+                    dbTechs.add('SQL');
+                }
+                
+                // Dependências do package.json (Node.js)
+                if (name === 'package.json') {
+                    try {
+                        const pkgContent = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+                        const deps = { ...(pkgContent.dependencies || {}), ...(pkgContent.devDependencies || {}) };
+                        
+                        if (deps['mongodb'] || deps['mongoose']) {
+                            dbTechs.add('MongoDB');
+                        }
+                        
+                        // Se houver dialeto explícito, só adiciona a correspondente
+                        if (explicitDialect) {
+                            dbTechs.add(explicitDialect);
+                            dbTechs.add('SQL');
+                        } else {
+                            if (deps['pg'] || deps['postgres']) {
+                                dbTechs.add('PostgreSQL');
+                                dbTechs.add('SQL');
+                            }
+                            if (deps['mysql'] || deps['mysql2']) {
+                                dbTechs.add('MySQL');
+                                dbTechs.add('SQL');
+                            }
+                            if (deps['sqlite'] || deps['sqlite3'] || deps['better-sqlite3']) {
+                                dbTechs.add('SQLite');
+                                dbTechs.add('SQL');
+                            }
+                        }
+                        
+                        if (deps['sequelize'] || deps['knex'] || deps['typeorm'] || deps['prisma']) {
+                            dbTechs.add('SQL');
+                        }
+                    } catch (_) {}
+                }
+                
+                // Python requirements
+                if (name === 'requirements.txt') {
+                    try {
+                        const reqs = fs.readFileSync(fullPath, 'utf8').toLowerCase();
+                        if (reqs.includes('psycopg2') || reqs.includes('psycopg')) {
+                            dbTechs.add('PostgreSQL');
+                            dbTechs.add('SQL');
+                        }
+                        if (reqs.includes('mysql') || reqs.includes('pymysql')) {
+                            dbTechs.add('MySQL');
+                            dbTechs.add('SQL');
+                        }
+                        if (reqs.includes('pymongo') || reqs.includes('mongoengine')) {
+                            dbTechs.add('MongoDB');
+                        }
+                        if (reqs.includes('sqlite') || reqs.includes('sqlalchemy') || reqs.includes('peewee') || reqs.includes('django')) {
+                            dbTechs.add('SQL');
+                        }
+                    } catch (_) {}
+                }
+                
+                // Variáveis de ambiente (.env)
+                if (name.startsWith('.env')) {
+                    try {
+                        const envContent = fs.readFileSync(fullPath, 'utf8');
+                        if (envContent.includes('mongodb://') || envContent.includes('mongodb+srv://')) {
+                            dbTechs.add('MongoDB');
+                        }
+                        if (envContent.includes('postgres://') || envContent.includes('postgresql://')) {
+                            dbTechs.add('PostgreSQL');
+                            dbTechs.add('SQL');
+                        }
+                        if (envContent.includes('mysql://')) {
+                            dbTechs.add('MySQL');
+                            dbTechs.add('SQL');
+                        }
+                        if (envContent.includes('sqlite:')) {
+                            dbTechs.add('SQLite');
+                            dbTechs.add('SQL');
+                        }
+                    } catch (_) {}
+                }
+            } else if (entry.isDirectory()) {
+                // Pastas comuns de ORMs ou configs
+                if (['prisma', 'config', 'db', 'database'].includes(name)) {
+                    try {
+                        const subFiles = fs.readdirSync(fullPath);
+                        for (const sf of subFiles) {
+                            const sfLower = sf.toLowerCase();
+                            if (sfLower === 'schema.prisma') {
+                                dbTechs.add('SQL');
+                                try {
+                                    const schemaContent = fs.readFileSync(path.join(fullPath, sf), 'utf8');
+                                    if (schemaContent.includes('provider = "postgresql"') || schemaContent.includes('provider = "postgres"')) {
+                                        dbTechs.add('PostgreSQL');
+                                    }
+                                    if (schemaContent.includes('provider = "mysql"')) {
+                                        dbTechs.add('MySQL');
+                                    }
+                                    if (schemaContent.includes('provider = "sqlite"')) {
+                                        dbTechs.add('SQLite');
+                                    }
+                                } catch (_) {}
+                            }
+                            if (sfLower.includes('db') || sfLower.includes('sql') || sfLower.endsWith('.sql') || sfLower.endsWith('.db') || sfLower.endsWith('.sqlite')) {
+                                dbTechs.add('SQL');
+                            }
+                        }
+                    } catch (_) {}
+                }
+            }
+        }
+    } catch (e) {
+        console.error("Erro ao detectar banco de dados:", e);
+    }
+
+    return Array.from(dbTechs);
+}
+
+// Auto-detecta tecnologias a partir dos arquivos do diretório
+function autoDetectTechs(folderPath) {
+    const techs = new Set();
+    try {
+        if (!fs.existsSync(folderPath)) return [];
+        const files = fs.readdirSync(folderPath);
+
+        for (const file of files) {
+            const ext = path.extname(file).toLowerCase();
+            const lowerFile = file.toLowerCase();
+
+            if (lowerFile === 'package.json') {
+                techs.add('Node.js');
+                try {
+                    const pkgContent = JSON.parse(fs.readFileSync(path.join(folderPath, file), 'utf8'));
+                    const deps = { ...(pkgContent.dependencies || {}), ...(pkgContent.devDependencies || {}) };
+                    if (deps['react']) techs.add('React');
+                    if (deps['vue']) techs.add('Vue');
+                    if (deps['next']) techs.add('Next.js');
+                    if (deps['express']) techs.add('Express');
+                    if (deps['tailwindcss']) techs.add('TailwindCSS');
+                    if (deps['mongodb'] || deps['mongoose']) techs.add('MongoDB');
+                } catch (e) {
+                    // Ignora erro ao analisar package.json
+                }
+            }
+            if (lowerFile === 'requirements.txt' || ext === '.py') {
+                techs.add('Python');
+            }
+            if (ext === '.js') {
+                techs.add('JavaScript');
+            }
+            if (ext === '.ts' || ext === '.tsx') {
+                techs.add('TypeScript');
+            }
+            if (ext === '.css') {
+                techs.add('CSS');
+            }
+            if (ext === '.html') {
+                techs.add('HTML5');
+            }
+            if (lowerFile === 'composer.json' || ext === '.php') {
+                techs.add('PHP');
+            }
+            if (ext === '.go') {
+                techs.add('Go');
+            }
+            if (ext === '.java') {
+                techs.add('Java');
+            }
+            if (lowerFile.includes('db') || lowerFile.includes('sql') || ext === '.sql' || ext === '.sqlite' || ext === '.db') {
+                techs.add('SQL');
+            }
+        }
+
+        // Adiciona as tecnologias de banco de dados detectadas
+        const dbTechs = detectDatabase(folderPath, path.basename(folderPath));
+        for (const db of dbTechs) {
+            techs.add(db);
+        }
+    } catch (e) {
+        console.error("Erro ao auto-detectar tecnologias:", e);
+    }
+    return Array.from(techs);
+}
+
+// Obtém a URL do repositório remoto Git a partir do arquivo .git/config local
+function getGitRepoUrl(folderPath) {
+    try {
+        const gitConfigPath = path.join(folderPath, '.git', 'config');
+        if (fs.existsSync(gitConfigPath)) {
+            const configContent = fs.readFileSync(gitConfigPath, 'utf8');
+            const match = configContent.match(/\[remote\s+"origin"\][^]*?url\s*=\s*(https?:\/\/[^\s\r\n]+|git@[^\s\r\n]+)/i);
+            if (match && match[1]) {
+                let url = match[1].trim();
+                if (url.startsWith('git@')) {
+                    url = url.replace(':', '/').replace('git@', 'https://').replace(/\.git$/, '');
+                }
+                if (url.endsWith('.git')) {
+                    url = url.slice(0, -4);
+                }
+                return url;
+            }
+        }
+    } catch (e) {
+        console.error(`Erro ao ler repositório git em ${folderPath}:`, e);
+    }
+    return null;
+}
+
+// Extrai links de site publicado (Vercel, sslip.io, etc.) e repositório GitHub do README.md
+function extractLinksFromReadme(readmeContent) {
+    let siteLink = "";
+    let repoLink = "";
+    
+    // Regex para encontrar links em formato Markdown: [Texto](URL)
+    const mdLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g;
+    // Regex para encontrar URLs puras no texto
+    const urlRegex = /(https?:\/\/[^\s\)\*]+)/g;
+    
+    let match;
+    const mdLinks = [];
+    while ((match = mdLinkRegex.exec(readmeContent)) !== null) {
+        mdLinks.push({ text: match[1], url: match[2] });
+    }
+    
+    // 1. Identificar repoLink (link do repositório GitHub principal pertencente ao usuário minoru)
+    for (const link of mdLinks) {
+        const urlLower = link.url.toLowerCase();
+        if (urlLower.includes('github.com/minoru') && !urlLower.includes('.io')) {
+            const isMainRepo = link.url.split('/').length <= 5; 
+            if (isMainRepo) {
+                repoLink = link.url;
+                break;
+            }
+        }
+    }
+    
+    if (!repoLink) {
+        const pureUrls = readmeContent.match(urlRegex) || [];
+        for (const url of pureUrls) {
+            const urlLower = url.toLowerCase();
+            if (urlLower.includes('github.com/minoru') && !urlLower.includes('.io')) {
+                const isMainRepo = url.split('/').length <= 5;
+                if (isMainRepo) {
+                    repoLink = url;
+                    break;
+                }
+            }
+        }
+    }
+
+    // 2. Identificar siteLink (link do site publicado ou de demonstração)
+    const siteKeywords = ['site', 'online', 'vercel', 'demo', 'produção', 'live', 'acesso', 'deploy', 'matriz'];
+    
+    for (const link of mdLinks) {
+        const textLower = link.text.toLowerCase();
+        const urlLower = link.url.toLowerCase();
+        
+        if (link.url === repoLink || (urlLower.includes('github.com/') && !urlLower.includes('.github.io'))) {
+            continue;
+        }
+        if (urlLower.includes('img.shields.io') || urlLower.includes('badge')) {
+            continue;
+        }
+        
+        const matchesKeyword = siteKeywords.some(keyword => textLower.includes(keyword) || urlLower.includes(keyword));
+        if (matchesKeyword) {
+            siteLink = link.url;
+            break;
+        }
+    }
+
+    if (!siteLink) {
+        for (const link of mdLinks) {
+            const urlLower = link.url.toLowerCase();
+            if (link.url === repoLink || urlLower.includes('img.shields.io') || urlLower.includes('badge')) {
+                continue;
+            }
+            if (urlLower.includes('vercel.app') || urlLower.includes('sslip.io') || urlLower.includes('github.io')) {
+                siteLink = link.url;
+                break;
+            }
+        }
+    }
+
+    if (!siteLink) {
+        const pureUrls = readmeContent.match(urlRegex) || [];
+        for (const url of pureUrls) {
+            const urlLower = url.toLowerCase();
+            if (url === repoLink || urlLower.includes('github.com') || urlLower.includes('img.shields.io') || urlLower.includes('badge')) {
+                continue;
+            }
+            if (urlLower.includes('vercel.app') || urlLower.includes('sslip.io') || urlLower.includes('github.io')) {
+                siteLink = url;
+                break;
+            }
+        }
+    }
+    
+    return { siteLink, repoLink };
+}
+
+// Sincroniza e importa novas pastas do workspace para o arquivo JSON
+function scanAndSyncLocalFolders() {
+    try {
+        const projects = getProjects();
+        const files = fs.readdirSync(__dirname, { withFileTypes: true });
+        
+        // Filtra para manter somente subdiretórios válidos (desprezando node_modules, pastas ocultas, .git, etc.)
+        const localFolders = files
+            .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('.') && dirent.name !== 'node_modules' && dirent.name !== 'scratch')
+            .map(dirent => dirent.name);
+
+        let changed = false;
+
+        for (const folderName of localFolders) {
+            const exists = projects.some(p => p.isLocalDir && p.dirName === folderName);
+            if (!exists) {
+                console.log(`Nova pasta de projeto detectada: ${folderName}. Importando...`);
+                const folderPath = path.join(__dirname, folderName);
+                
+                let projectName = cleanFolderNameToName(folderName);
+                let projectDescription = "Projeto importado automaticamente a partir da pasta local.";
+                let techs = [];
+                let gitRepoLink = getGitRepoUrl(folderPath);
+                let extractedLinks = { siteLink: "", repoLink: "" };
+
+                // Tenta extrair informações do README.md
+                const readmePath = path.join(folderPath, 'README.md');
+                if (fs.existsSync(readmePath)) {
+                    try {
+                        const readmeContent = fs.readFileSync(readmePath, 'utf8');
+                        extractedLinks = extractLinksFromReadme(readmeContent);
+                        
+                        const titleMatch = readmeContent.match(/^#\s+(.+)$/m);
+                        if (titleMatch && titleMatch[1]) {
+                            projectName = titleMatch[1].trim();
+                        }
+                        
+                        const lines = readmeContent.split('\n');
+                        const titleIdx = lines.findIndex(line => line.trim().startsWith('# '));
+                        if (titleIdx !== -1) {
+                            let descLines = [];
+                            for (let i = titleIdx + 1; i < lines.length; i++) {
+                                const trimmed = lines[i].trim();
+                                if (trimmed.startsWith('#')) break;
+                                if (trimmed.length > 0) {
+                                    descLines.push(trimmed);
+                                }
+                            }
+                            if (descLines.length > 0) {
+                                projectDescription = descLines.slice(0, 3).join(' ');
+                            }
+                        }
+                    } catch (e) {
+                        console.error(`Erro ao analisar README.md de ${folderName}:`, e);
+                    }
+                }
+
+                // Auto-detecta tecnologias
+                techs = autoDetectTechs(folderPath);
+                if (techs.length === 0) {
+                    techs = ["JavaScript", "HTML5", "CSS3"];
+                }
+
+                // Datas do diretório
+                const dates = getFolderDates(folderName) || {
+                    creationDate: new Date().toISOString().split('T')[0],
+                    date: new Date().toISOString().split('T')[0]
+                };
+
+                const newProject = {
+                    id: 'proj_' + folderName.toLowerCase().replace(/[^a-z0-9]/g, '_') + '_' + Date.now().toString().slice(-4),
+                    name: projectName,
+                    description: projectDescription,
+                    techs: techs,
+                    creationDate: dates.creationDate,
+                    date: dates.date,
+                    isLocalDir: true,
+                    dirName: folderName,
+                    collaborators: ["Minoru"],
+                    repoLink: gitRepoLink || extractedLinks.repoLink,
+                    siteLink: extractedLinks.siteLink
+                };
+
+                projects.push(newProject);
+                changed = true;
+            }
+        }
+
+        // Garante que todos os projetos existentes também tenham as etiquetas de banco de dados e links atualizados
+        for (let i = 0; i < projects.length; i++) {
+            const p = projects[i];
+            if (p.isLocalDir && p.dirName) {
+                const folderPath = path.join(__dirname, p.dirName);
+                if (fs.existsSync(folderPath)) {
+                    // Atualiza banco de dados
+                    const dbTechs = detectDatabase(folderPath, p.dirName);
+                    let projectChanged = false;
+                    for (const db of dbTechs) {
+                        if (!p.techs.includes(db)) {
+                            p.techs.push(db);
+                            projectChanged = true;
+                            changed = true;
+                        }
+                    }
+                    if (projectChanged) {
+                        console.log(`[Banco de Dados] Adicionadas etiquetas de banco de dados para "${p.name}": ${dbTechs.join(', ')}`);
+                    }
+
+                    // Atualiza repoLink com a URL do Git local se disponível e diferente
+                    const gitRepoLink = getGitRepoUrl(folderPath);
+                    if (gitRepoLink && p.repoLink !== gitRepoLink) {
+                        p.repoLink = gitRepoLink;
+                        projectChanged = true;
+                        changed = true;
+                        console.log(`[Git] Atualizado repoLink do Git local para "${p.name}": ${gitRepoLink}`);
+                    }
+
+                    // Atualiza links se estiverem em branco no projects.json mas existirem no README.md
+                    const readmePath = path.join(folderPath, 'README.md');
+                    if (fs.existsSync(readmePath)) {
+                        try {
+                            const readmeContent = fs.readFileSync(readmePath, 'utf8');
+                            const extracted = extractLinksFromReadme(readmeContent);
+                            if (extracted.siteLink && !p.siteLink) {
+                                p.siteLink = extracted.siteLink;
+                                projectChanged = true;
+                                changed = true;
+                                console.log(`[Links] Adicionado siteLink para "${p.name}": ${extracted.siteLink}`);
+                            }
+                            if (extracted.repoLink && !p.repoLink) {
+                                p.repoLink = extracted.repoLink;
+                                projectChanged = true;
+                                changed = true;
+                                console.log(`[Links] Adicionado repoLink para "${p.name}": ${extracted.repoLink}`);
+                            }
+                        } catch (_) {}
+                    }
+                }
+            }
+        }
+
+        if (changed) {
+            saveProjects(projects);
+            console.log("Banco de dados local projects.json atualizado com os novos projetos, tags de banco e links do README.");
+        }
+        return projects;
+    } catch (error) {
+        console.error("Erro na sincronização de pastas locais:", error);
+        return getProjects();
+    }
+}
+
+// Inicia o monitor de criação de diretórios em tempo real
+let watcherActive = false;
+function startWorkspaceWatcher() {
+    if (watcherActive) return;
+    try {
+        fs.watch(__dirname, (eventType, filename) => {
+            if (eventType === 'rename' && filename) {
+                const fullPath = path.join(__dirname, filename);
+                // Pequeno delay para garantir que o SO finalize a criação do diretório
+                setTimeout(() => {
+                    try {
+                        if (fs.existsSync(fullPath)) {
+                            const stat = fs.statSync(fullPath);
+                            if (stat.isDirectory() && !filename.startsWith('.') && filename !== 'node_modules' && filename !== 'scratch') {
+                                console.log(`[Watcher] Nova pasta detectada pelo monitor: ${filename}`);
+                                scanAndSyncLocalFolders();
+                            }
+                        }
+                    } catch (e) {
+                        // Ignora falhas de lock de arquivos temporários do SO
+                    }
+                }, 1000);
+            }
+        });
+        watcherActive = true;
+        console.log("Monitor (Watcher) do workspace ativado com sucesso.");
+    } catch (error) {
+        console.error("Erro ao iniciar monitor do workspace:", error);
+    }
+}
+
 // Cria o servidor HTTP
 const server = http.createServer((req, res) => {
     const url = new URL(req.url, `http://${req.headers.host}`);
@@ -143,7 +687,7 @@ const server = http.createServer((req, res) => {
 
     // GET /api/projects - Retorna todos os projetos
     if (pathname === '/api/projects' && method === 'GET') {
-        const projects = getProjects();
+        const projects = scanAndSyncLocalFolders();
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(projects));
         return;
@@ -347,4 +891,8 @@ server.listen(PORT, () => {
     console.log(` URL de acesso: http://localhost:${PORT}`);
     console.log(` Banco de dados local: ${DATA_FILE}`);
     console.log(`==================================================`);
+
+    // Varredura inicial e inicialização do monitor do workspace
+    scanAndSyncLocalFolders();
+    startWorkspaceWatcher();
 });
