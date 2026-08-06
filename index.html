@@ -12,7 +12,7 @@
     <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="style.css?v=1.2.6">
+    <link rel="stylesheet" href="style.css?v=1.2.7">
 </head>
 <body>
     <div class="app-container">
@@ -229,7 +229,7 @@
 
         <footer class="app-footer">
             <p>Desenvolvido para Mackenzie</p>
-            <span class="footer-version">v1.2.6</span>
+            <span class="footer-version">v1.2.7</span>
         </footer>
     </div>
 
@@ -374,34 +374,6 @@
         </div>
     </div>
 
-    <!-- Modal de Aviso do Servidor Local Conectado -->
-    <div class="modal-overlay hidden" id="local-server-notice-modal">
-        <div class="modal-card" style="max-width: 500px;">
-            <div class="modal-header">
-                <div style="display: flex; align-items: center; gap: 0.8rem;">
-                    <i data-lucide="server" style="color: var(--color-emerald); width: 24px; height: 24px;"></i>
-                    <h2 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700;">Servidor Local Conectado</h2>
-                </div>
-                <button class="btn-close" id="btn-close-local-server-notice" aria-label="Fechar modal">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body" style="padding: 1.2rem 0; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
-                <p>O painel está integrado ao servidor de desenvolvimento Node.js.</p>
-                <div style="background: rgba(52, 211, 153, 0.08); border-left: 4px solid var(--color-emerald); padding: 1rem; border-radius: var(--border-radius-sm); color: var(--text-primary);">
-                    Todos os dados de projetos, colaboradores e tecnologias exibidos nesta tela **vêm diretamente do servidor local** de onde os projetos estão sendo desenvolvidos no seu computador.
-                </div>
-                <p>Qualquer criação física de pasta ou sincronização em tempo real de arquivos está ativa e será refletida diretamente no seu disco local.</p>
-            </div>
-            
-            <div class="modal-actions" style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
-                <button type="button" class="btn btn-primary" id="btn-confirm-local-server-notice" style="min-width: 100px; background: var(--gradient-brand);">
-                    <span>Entendido</span>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal de Visualização da Descrição Completa -->
     <div class="modal-overlay hidden" id="full-desc-viewer-modal" style="z-index: 1100;">
@@ -427,6 +399,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="app.js?v=1.2.6"></script>
+    <script src="app.js?v=1.2.7"></script>
 </body>
 </html>
