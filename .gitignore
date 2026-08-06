@@ -14,6 +14,7 @@
 !app.js
 !server.js
 !projects.json
+!vercel.json
 
 # =============================================================
 #  O que NÃO sobe (exemplos explícitos para clareza):
