@@ -160,6 +160,11 @@ const demoNoticeModal = document.getElementById("demo-notice-modal");
 const btnCloseDemoNotice = document.getElementById("btn-close-demo-notice");
 const btnConfirmDemoNotice = document.getElementById("btn-confirm-demo-notice");
 
+// Elementos do Modal de Aviso do Servidor Local
+const localServerNoticeModal = document.getElementById("local-server-notice-modal");
+const btnCloseLocalServerNotice = document.getElementById("btn-close-local-server-notice");
+const btnConfirmLocalServerNotice = document.getElementById("btn-confirm-local-server-notice");
+
 // Opções de Pasta do Modal
 const radioOptNone = document.getElementById("folder-opt-none");
 const radioOptExisting = document.getElementById("folder-opt-existing");
@@ -191,6 +196,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Mostra aviso de demonstração se for modo estático/Vercel (servidor offline)
     if (!isServerConnected && !sessionStorage.getItem("demo_notice_closed")) {
         openDemoNoticeModal();
+    }
+
+    // Mostra aviso de servidor local se estiver conectado
+    if (isServerConnected && !sessionStorage.getItem("local_server_notice_closed")) {
+        openLocalServerNoticeModal();
     }
 
     updateDashboardStats();
@@ -326,6 +336,17 @@ function setupEventListeners() {
         demoNoticeModal.addEventListener("click", (e) => {
             if (e.target === demoNoticeModal) {
                 closeDemoNoticeModal();
+            }
+        });
+    }
+
+    // Controle do Modal de Aviso do Servidor Local
+    if (btnCloseLocalServerNotice) btnCloseLocalServerNotice.addEventListener("click", closeLocalServerNoticeModal);
+    if (btnConfirmLocalServerNotice) btnConfirmLocalServerNotice.addEventListener("click", closeLocalServerNoticeModal);
+    if (localServerNoticeModal) {
+        localServerNoticeModal.addEventListener("click", (e) => {
+            if (e.target === localServerNoticeModal) {
+                closeLocalServerNoticeModal();
             }
         });
     }
@@ -691,6 +712,22 @@ function closeDemoNoticeModal() {
         demoNoticeModal.classList.add("hidden");
         document.body.style.overflow = "";
         sessionStorage.setItem("demo_notice_closed", "true");
+    }
+}
+
+// Controladores do Modal de Aviso do Servidor Local
+function openLocalServerNoticeModal() {
+    if (localServerNoticeModal) {
+        localServerNoticeModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeLocalServerNoticeModal() {
+    if (localServerNoticeModal) {
+        localServerNoticeModal.classList.add("hidden");
+        document.body.style.overflow = "";
+        sessionStorage.setItem("local_server_notice_closed", "true");
     }
 }
 
