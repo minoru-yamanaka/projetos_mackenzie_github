@@ -144,6 +144,7 @@ const btnCloseModal = document.getElementById("btn-close-modal");
 const btnCancelForm = document.getElementById("btn-cancel-form");
 const projectForm = document.getElementById("project-form");
 const modalTitle = document.getElementById("modal-title");
+const btnDeleteProjectModal = document.getElementById("btn-delete-project-modal");
 
 const inputId = document.getElementById("project-id");
 const inputName = document.getElementById("project-name");
@@ -372,6 +373,17 @@ function setupEventListeners() {
         fullDescViewerModal.addEventListener("click", (e) => {
             if (e.target === fullDescViewerModal) {
                 closeFullDesc();
+            }
+        });
+    }
+
+    // Controle do Botão de Excluir dentro do Modal de Edição
+    if (btnDeleteProjectModal) {
+        btnDeleteProjectModal.addEventListener("click", () => {
+            const id = inputId.value;
+            if (id) {
+                closeModal();
+                window.deleteProject(id);
             }
         });
     }
@@ -712,9 +724,6 @@ function createProjectCard(project) {
                         <button class="action-btn edit" onclick="editProject('${project.id}')" title="Visualizar / Editar Projeto">
                             <i data-lucide="eye"></i>
                         </button>
-                        <button class="action-btn delete" onclick="deleteProject('${project.id}')" title="Excluir Projeto">
-                            <i data-lucide="trash-2"></i>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -748,6 +757,7 @@ function openModal(project = null) {
     document.body.style.overflow = "hidden";
 
     if (project) {
+        if (btnDeleteProjectModal) btnDeleteProjectModal.classList.remove("hidden");
         // Modo Edição
         modalTitle.textContent = "Editar Projeto";
         inputId.value = project.id;
@@ -779,6 +789,7 @@ function openModal(project = null) {
             radioOptNone.checked = true;
         }
     } else {
+        if (btnDeleteProjectModal) btnDeleteProjectModal.classList.add("hidden");
         // Modo Criação
         modalTitle.textContent = "Adicionar Novo Projeto";
         projectForm.reset();

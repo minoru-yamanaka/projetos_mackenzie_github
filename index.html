@@ -12,7 +12,7 @@
     <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="style.css?v=1.2.10">
+    <link rel="stylesheet" href="style.css?v=1.2.11">
 </head>
 <body>
     <div class="app-container">
@@ -246,7 +246,7 @@
 
         <footer class="app-footer">
             <p>Desenvolvido por <a href="https://linkedin.com/in/minoru-yamanaka" target="_blank" class="footer-link-linkedin">Minoru Yamanaka</a> para Mackenzie</p>
-            <span class="footer-version">v1.2.10</span>
+            <span class="footer-version">v1.2.11</span>
         </footer>
     </div>
 
@@ -351,12 +351,21 @@
                     <input type="text" id="project-new-dir-name" placeholder="Ex: SITE_MEU_NOVO_PROJETO">
                 </div>
 
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary" id="btn-cancel-form">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="btn-save-project">
-                        <i data-lucide="save"></i>
-                        <span>Salvar Projeto</span>
-                    </button>
+                <div class="modal-actions" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div>
+                        <!-- Botão de Excluir (Só aparece no modo Edição) -->
+                        <button type="button" class="btn btn-danger hidden" id="btn-delete-project-modal" style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; border: none; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2); transition: var(--transition-smooth); display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.2rem; cursor: pointer;">
+                            <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+                            <span>Excluir</span>
+                        </button>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="button" class="btn btn-secondary" id="btn-cancel-form">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="btn-save-project">
+                            <i data-lucide="save"></i>
+                            <span>Salvar Projeto</span>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -416,6 +425,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="app.js?v=1.2.10"></script>
+    <script src="app.js?v=1.2.11"></script>
 </body>
 </html>
