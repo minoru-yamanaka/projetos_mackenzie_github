@@ -2308,3 +2308,14 @@ div.metrics-accordion-trigger {
         min-width: 100%;
     }
 }
+
+/* Ocultação de scrollbar na área de texto de Descrição do modal */
+#project-description {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    resize: vertical; /* Permite redimensionamento manual se necessário */
+}
+
+#project-description::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}

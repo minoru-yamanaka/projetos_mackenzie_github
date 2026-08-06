@@ -165,6 +165,13 @@ const localServerNoticeModal = document.getElementById("local-server-notice-moda
 const btnCloseLocalServerNotice = document.getElementById("btn-close-local-server-notice");
 const btnConfirmLocalServerNotice = document.getElementById("btn-confirm-local-server-notice");
 
+// Elementos do Modal de Visualização da Descrição Completa
+const btnViewFullDesc = document.getElementById("btn-view-full-desc");
+const fullDescViewerModal = document.getElementById("full-desc-viewer-modal");
+const fullDescContent = document.getElementById("full-desc-content");
+const btnCloseFullDesc = document.getElementById("btn-close-full-desc");
+const btnCloseFullDescOk = document.getElementById("btn-close-full-desc-ok");
+
 // Opções de Pasta do Modal
 const radioOptNone = document.getElementById("folder-opt-none");
 const radioOptExisting = document.getElementById("folder-opt-existing");
@@ -347,6 +354,39 @@ function setupEventListeners() {
         localServerNoticeModal.addEventListener("click", (e) => {
             if (e.target === localServerNoticeModal) {
                 closeLocalServerNoticeModal();
+            }
+        });
+    }
+
+    // Controle do Modal de Visualização da Descrição Completa
+    if (btnViewFullDesc) {
+        btnViewFullDesc.addEventListener("click", () => {
+            const descText = inputDescription.value.trim();
+            if (descText) {
+                fullDescContent.textContent = descText;
+                fullDescViewerModal.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            } else {
+                alert("A descrição está vazia.");
+            }
+        });
+    }
+
+    const closeFullDesc = () => {
+        if (fullDescViewerModal) {
+            fullDescViewerModal.classList.add("hidden");
+            if (projectModal.classList.contains("hidden")) {
+                document.body.style.overflow = "";
+            }
+        }
+    };
+
+    if (btnCloseFullDesc) btnCloseFullDesc.addEventListener("click", closeFullDesc);
+    if (btnCloseFullDescOk) btnCloseFullDescOk.addEventListener("click", closeFullDesc);
+    if (fullDescViewerModal) {
+        fullDescViewerModal.addEventListener("click", (e) => {
+            if (e.target === fullDescViewerModal) {
+                closeFullDesc();
             }
         });
     }

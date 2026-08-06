@@ -12,7 +12,7 @@
     <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="style.css?v=1.2.5">
+    <link rel="stylesheet" href="style.css?v=1.2.6">
 </head>
 <body>
     <div class="app-container">
@@ -229,7 +229,7 @@
 
         <footer class="app-footer">
             <p>Desenvolvido para Mackenzie</p>
-            <span class="footer-version">v1.2.5</span>
+            <span class="footer-version">v1.2.6</span>
         </footer>
     </div>
 
@@ -253,7 +253,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="project-description">Descrição <span class="required">*</span></label>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+                        <label for="project-description" style="margin: 0;">Descrição <span class="required">*</span></label>
+                        <button type="button" id="btn-view-full-desc" class="btn-icon" title="Visualizar descrição completa" style="background: none; border: none; color: var(--color-cyan); cursor: pointer; display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-family: var(--font-body); font-weight: 500; transition: var(--transition-smooth); outline: none;">
+                            <i data-lucide="eye" style="width: 14px; height: 14px;"></i>
+                            <span>Visualizar tudo</span>
+                        </button>
+                    </div>
                     <textarea id="project-description" required rows="4" placeholder="Descreva brevemente o objetivo do projeto, funcionalidades principais..."></textarea>
                 </div>
 
@@ -397,7 +403,30 @@
         </div>
     </div>
 
+    <!-- Modal de Visualização da Descrição Completa -->
+    <div class="modal-overlay hidden" id="full-desc-viewer-modal" style="z-index: 1100;">
+        <div class="modal-card" style="max-width: 450px;">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                    <i data-lucide="file-text" style="color: var(--color-purple); width: 24px; height: 24px;"></i>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700;">Descrição Completa</h2>
+                </div>
+                <button class="btn-close" id="btn-close-full-desc" aria-label="Fechar modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="full-desc-content" style="padding: 1.5rem; color: var(--text-primary); line-height: 1.6; font-size: 0.95rem; white-space: pre-wrap; word-break: break-word; max-height: 60vh; overflow-y: auto;">
+                <!-- Texto da descrição será inserido aqui -->
+            </div>
+            <div class="modal-actions" style="padding: 1rem 1.5rem; display: flex; justify-content: flex-end; border-top: 1px solid var(--border-glass); margin-top: 0;">
+                <button type="button" class="btn btn-secondary" id="btn-close-full-desc-ok" style="min-width: 80px;">
+                    <span>Fechar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="app.js?v=1.2.5"></script>
+    <script src="app.js?v=1.2.6"></script>
 </body>
 </html>
