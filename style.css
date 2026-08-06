@@ -2438,3 +2438,30 @@ div.metrics-accordion-trigger {
         justify-content: center;
     }
 }
+
+/* Links do LinkedIn */
+.mirror-link-linkedin {
+    color: var(--color-cyan);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    border-bottom: 1px dashed rgba(34, 211, 238, 0.4);
+}
+
+.mirror-link-linkedin:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.footer-link-linkedin {
+    color: var(--color-purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border-bottom: 1px dashed rgba(167, 139, 250, 0.4);
+}
+
+.footer-link-linkedin:hover {
+    color: var(--color-cyan);
+    border-bottom-color: var(--color-cyan);
+}
