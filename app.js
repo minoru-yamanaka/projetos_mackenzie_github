@@ -806,13 +806,11 @@ async function handleFormSubmit(e) {
     e.preventDefault();
     const id = inputId.value;
 
-    // Exige a senha para criar um novo projeto
-    if (!id) {
-        const password = prompt("Digite a senha de administrador para adicionar este projeto:");
-        if (password !== "40028922") {
-            alert("Senha incorreta! Ação cancelada.");
-            return;
-        }
+    // Exige a senha para salvar qualquer alteração (criar ou editar)
+    const password = prompt("Digite a senha de administrador para confirmar e salvar as alterações:");
+    if (password !== "40028922") {
+        alert("Senha incorreta! Ação cancelada.");
+        return;
     }
 
     const name = inputName.value.trim();
@@ -942,11 +940,6 @@ async function handleFormSubmit(e) {
 
 // Abre o modal para edição de um projeto específico
 window.editProject = function(id) {
-    const password = prompt("Digite a senha de administrador para editar este projeto:");
-    if (password !== "40028922") {
-        alert("Senha incorreta! Ação cancelada.");
-        return;
-    }
     const project = projects.find(p => p.id === id);
     if (project) {
         openModal(project);
