@@ -44,7 +44,6 @@
 }
 
 body {
-    zoom: 0.8;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -58,6 +57,7 @@ body {
 
 /* Layout Geral (Menu Superior + Content) */
 .app-container {
+    zoom: 0.8;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
