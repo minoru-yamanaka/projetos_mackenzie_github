@@ -1407,6 +1407,12 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.modal-body::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
 }
 
 .form-group {
