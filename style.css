@@ -1538,6 +1538,10 @@ body {
     padding-top: 1.5rem;
 }
 
+.modal-actions .btn {
+    min-width: 130px;
+}
+
 /* Responsividade Harmônica */
 @media (max-width: 1280px) {
     .sidebar {
@@ -1742,6 +1746,22 @@ body {
     .modal-actions {
         padding-top: 1rem;
         margin-top: 0.5rem;
+        flex-direction: column-reverse;
+        align-items: stretch !important;
+        gap: 0.8rem;
+    }
+    
+    .modal-actions > div,
+    .modal-actions > div:last-child {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .modal-actions .btn {
+        width: 100% !important;
+        min-width: 0 !important;
     }
     
     .app-footer {
