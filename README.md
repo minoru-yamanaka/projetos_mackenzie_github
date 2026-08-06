@@ -2,6 +2,8 @@
 
 Dashboard moderno para gerenciar e visualizar todos os projetos acadêmicos do Mackenzie. Permite cadastrar projetos, vincular pastas físicas do disco, monitorar frequência de atualização com um sistema de **farol de cores** e filtrar projetos por período de atividade.
 
+🌐 **Acesse o Site Online (Vercel)**: [https://projetos-mackenzie-github-juvs.vercel.app/](https://projetos-mackenzie-github-juvs.vercel.app/)
+
 ---
 
 ## 🚀 Como rodar o projeto
