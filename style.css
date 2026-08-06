@@ -1528,7 +1528,7 @@ body {
 }
 
 /* Responsividade Harmônica */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .sidebar {
         padding: 1rem 2rem;
         flex-wrap: wrap;
@@ -1574,7 +1574,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .sidebar {
         padding: 1rem 1.5rem;
     }
@@ -1595,7 +1595,7 @@ body {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
     .sidebar {
         padding: 0.8rem 1rem;
         flex-direction: row;
@@ -2228,7 +2228,7 @@ body {
 }
 
 /* Ajuste de responsividade do formulário */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .form-row-2 {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -2280,7 +2280,7 @@ div.metrics-accordion-trigger {
 }
 
 /* Responsividade específica para a barra de filtros (.control-row) */
-@media (max-width: 900px) {
+@media (max-width: 1125px) {
     .control-row {
         flex-direction: column;
         align-items: stretch;
