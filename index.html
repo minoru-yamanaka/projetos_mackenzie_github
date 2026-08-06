@@ -12,7 +12,7 @@
     <!-- Ícones Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="style.css?v=1.2.7">
+    <link rel="stylesheet" href="style.css?v=1.2.8">
 </head>
 <body>
     <div class="app-container">
@@ -71,6 +71,23 @@
 
         <!-- Área Principal de Conteúdo -->
         <main class="main-content">
+            <!-- Card de Aviso: Espelho do Servidor Local -->
+            <div class="mirror-info-card">
+                <div class="mirror-info-content">
+                    <div class="mirror-info-icon-wrapper">
+                        <i data-lucide="copy" class="mirror-info-icon"></i>
+                    </div>
+                    <div class="mirror-info-text">
+                        <h3>Ambiente de Espelhamento</h3>
+                        <p>Este painel funciona como um **espelho demonstrativo** do servidor local de desenvolvimento. Para persistir alterações permanentes na estrutura física e de banco de dados, as modificações devem ser efetuadas localmente pelo desenvolvedor **Minoru Yamanaka**.</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/5511959473402" target="_blank" class="btn btn-whatsapp">
+                    <i data-lucide="message-circle"></i>
+                    <span>Contato WhatsApp</span>
+                </a>
+            </div>
+
             <!-- Card unificado: Filtros + Indicadores de Frequência -->
             <div class="control-card" id="metrics-accordion">
 
@@ -229,7 +246,7 @@
 
         <footer class="app-footer">
             <p>Desenvolvido para Mackenzie</p>
-            <span class="footer-version">v1.2.7</span>
+            <span class="footer-version">v1.2.8</span>
         </footer>
     </div>
 
@@ -399,6 +416,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="app.js?v=1.2.7"></script>
+    <script src="app.js?v=1.2.8"></script>
 </body>
 </html>

@@ -2319,3 +2319,122 @@ div.metrics-accordion-trigger {
 #project-description::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
 }
+
+/* Card de Informação do Espelho do Servidor */
+.mirror-info-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(34, 211, 238, 0.05) 100%);
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    border-radius: var(--border-radius-lg);
+    padding: 1.2rem 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--transition-smooth);
+}
+
+.mirror-info-card:hover {
+    border-color: rgba(34, 211, 238, 0.3);
+    box-shadow: var(--shadow-glow-purple), 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mirror-info-content {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex: 1;
+}
+
+.mirror-info-icon-wrapper {
+    background: rgba(167, 139, 250, 0.12);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.15);
+}
+
+.mirror-info-icon {
+    color: var(--color-purple);
+    width: 22px;
+    height: 22px;
+}
+
+.mirror-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.mirror-info-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.mirror-info-text p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.mirror-info-text p strong {
+    color: var(--color-cyan);
+}
+
+/* Botão de Contato WhatsApp */
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    white-space: nowrap;
+    padding: 0.75rem 1.4rem;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #34e772 0%, #15a393 100%);
+}
+
+/* Responsividade do Card do Espelho */
+@media (max-width: 960px) {
+    .mirror-info-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.2rem;
+        padding: 1.2rem;
+    }
+    
+    .mirror-info-content {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .mirror-info-icon-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .mirror-info-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+    }
+}
