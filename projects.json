@@ -425,7 +425,7 @@
     },
     {
         "id": "proj_site_onboard_medicina_mackenzie_3108",
-        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenziee",
+        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
         "description": "Este projeto consiste em uma plataforma interativa em formato de mapa mental dinâmico, desenvolvida para que alunos e professores compreendam o fluxo acadêmico, o modelo pedagógico e os canais de atendimento do curso de Medicina da UPM (Universidade Presbiteriana Mackenzie). ---",
         "techs": [
             "JavaScript",
