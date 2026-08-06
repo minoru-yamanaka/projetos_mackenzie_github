@@ -339,6 +339,35 @@
         </div>
     </div>
 
+    <!-- Modal de Aviso do Modo de Demonstração (Vercel) -->
+    <div class="modal-overlay hidden" id="demo-notice-modal">
+        <div class="modal-card" style="max-width: 500px;">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                    <i data-lucide="alert-triangle" style="color: var(--color-yellow); width: 24px; height: 24px;"></i>
+                    <h2 style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700;">Modo de Demonstração (Online)</h2>
+                </div>
+                <button class="btn-close" id="btn-close-demo-notice" aria-label="Fechar modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body" style="padding: 1.2rem 0; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+                <p>Você está visualizando a versão online hospedada na Vercel.</p>
+                <div style="background: rgba(251, 191, 36, 0.08); border-left: 4px solid var(--color-yellow); padding: 1rem; border-radius: var(--border-radius-sm); color: var(--text-primary);">
+                    Qualquer alteração (Criar, Editar ou Excluir projetos) funcionará de forma temporária no navegador (LocalStorage) e <strong>não alterará</strong> os arquivos físicos ou o repositório original do desenvolvedor.
+                </div>
+                <p>Para o funcionamento completo com integração automática de pastas locais, execute o projeto localmente em seu computador.</p>
+            </div>
+            
+            <div class="modal-actions" style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-primary" id="btn-confirm-demo-notice" style="min-width: 100px;">
+                    <span>Entendido</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="app.js"></script>
 </body>

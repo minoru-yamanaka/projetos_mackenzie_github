@@ -155,6 +155,11 @@ const inputUpdateDate = document.getElementById("project-update-date");
 const inputRepoLink = document.getElementById("project-repo-link");
 const inputSiteLink = document.getElementById("project-site-link");
 
+// Elementos do Modal de Aviso Demo (Vercel)
+const demoNoticeModal = document.getElementById("demo-notice-modal");
+const btnCloseDemoNotice = document.getElementById("btn-close-demo-notice");
+const btnConfirmDemoNotice = document.getElementById("btn-confirm-demo-notice");
+
 // Opções de Pasta do Modal
 const radioOptNone = document.getElementById("folder-opt-none");
 const radioOptExisting = document.getElementById("folder-opt-existing");
@@ -182,6 +187,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupEventListeners();
     await checkServerConnection();
     await loadProjects();
+
+    // Mostra aviso de demonstração se for modo estático/Vercel (servidor offline)
+    if (!isServerConnected && !sessionStorage.getItem("demo_notice_closed")) {
+        openDemoNoticeModal();
+    }
+
     updateDashboardStats();
     updateMetrics();
     populateTechFilterOptions();
@@ -307,6 +318,17 @@ function setupEventListeners() {
             closeModal();
         }
     });
+
+    // Controle do Modal de Aviso Demo
+    if (btnCloseDemoNotice) btnCloseDemoNotice.addEventListener("click", closeDemoNoticeModal);
+    if (btnConfirmDemoNotice) btnConfirmDemoNotice.addEventListener("click", closeDemoNoticeModal);
+    if (demoNoticeModal) {
+        demoNoticeModal.addEventListener("click", (e) => {
+            if (e.target === demoNoticeModal) {
+                closeDemoNoticeModal();
+            }
+        });
+    }
 
     // Inicializa sugestão de colaboradores
     setupCollaboratorsAutocomplete();
@@ -654,6 +676,22 @@ function createProjectCard(project) {
     `;
 
     return card;
+}
+
+// Controladores do Modal de Aviso Demo (Vercel)
+function openDemoNoticeModal() {
+    if (demoNoticeModal) {
+        demoNoticeModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeDemoNoticeModal() {
+    if (demoNoticeModal) {
+        demoNoticeModal.classList.add("hidden");
+        document.body.style.overflow = "";
+        sessionStorage.setItem("demo_notice_closed", "true");
+    }
 }
 
 // Controladores do Modal
