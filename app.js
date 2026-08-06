@@ -684,8 +684,8 @@ function createProjectCard(project) {
                         </div>
                     </div>
                     <div class="card-actions">
-                        <button class="action-btn edit" onclick="editProject('${project.id}')" title="Editar Projeto">
-                            <i data-lucide="edit-3"></i>
+                        <button class="action-btn edit" onclick="editProject('${project.id}')" title="Visualizar / Editar Projeto">
+                            <i data-lucide="eye"></i>
                         </button>
                         <button class="action-btn delete" onclick="deleteProject('${project.id}')" title="Excluir Projeto">
                             <i data-lucide="trash-2"></i>
