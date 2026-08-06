@@ -13,6 +13,7 @@
 !style.css
 !app.js
 !server.js
+!projects.json
 
 # =============================================================
 #  O que NÃO sobe (exemplos explícitos para clareza):
@@ -22,7 +23,7 @@
 SITE_*/
 
 # Banco de dados local com seus projetos cadastrados (dados pessoais)
-projects.json
+# projects.json (Removido para permitir espelhamento no Git)
 
 # Dependências (caso adicione npm no futuro)
 node_modules/
