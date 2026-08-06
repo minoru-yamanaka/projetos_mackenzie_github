@@ -1341,7 +1341,7 @@ body {
     border: 1px solid var(--border-glass);
     border-radius: var(--border-radius-lg);
     width: 100%;
-    max-width: 580px;
+    max-width: 500px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     overflow: hidden;
     animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);

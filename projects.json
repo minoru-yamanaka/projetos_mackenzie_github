@@ -435,7 +435,7 @@
         "creationDate": "2026-08-06",
         "date": "2026-08-06",
         "isLocalDir": true,
-        "dirName": "SITE_MAPA_MENTAL_INTERATIVO_ONBOARDING_DE_MEDICINA_MACKENZIE",
+        "dirName": "SITE_ONBOARDING_DE_MEDICINA_MACKENZIE",
         "collaborators": [
             "Minoru"
         ],
@@ -503,5 +503,24 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_onboard_medicina_mackenzie",
         "siteLink": "https://site-onboard-medicina-mackenzie.vercel.app/"
+    },
+    {
+        "id": "proj_site_onboarding_de_medicina_mackenzie_9856",
+        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
+        "description": "Este projeto foi gerado automaticamente através do **Mackenzie Projects Hub**.",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS3"
+        ],
+        "creationDate": "2026-08-06",
+        "date": "2026-08-06",
+        "isLocalDir": true,
+        "dirName": "SITE_ONBOARDING_DE_MEDICINA_MACKENZIE",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "",
+        "siteLink": ""
     }
 ]
