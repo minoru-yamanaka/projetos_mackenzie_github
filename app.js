@@ -805,6 +805,16 @@ function closeModal() {
 async function handleFormSubmit(e) {
     e.preventDefault();
     const id = inputId.value;
+
+    // Exige a senha para criar um novo projeto
+    if (!id) {
+        const password = prompt("Digite a senha de administrador para adicionar este projeto:");
+        if (password !== "40028922") {
+            alert("Senha incorreta! Ação cancelada.");
+            return;
+        }
+    }
+
     const name = inputName.value.trim();
     const description = inputDescription.value.trim();
     const techs = inputTechs.value.split(",").map(t => t.trim()).filter(t => t.length > 0);
@@ -932,6 +942,11 @@ async function handleFormSubmit(e) {
 
 // Abre o modal para edição de um projeto específico
 window.editProject = function(id) {
+    const password = prompt("Digite a senha de administrador para editar este projeto:");
+    if (password !== "40028922") {
+        alert("Senha incorreta! Ação cancelada.");
+        return;
+    }
     const project = projects.find(p => p.id === id);
     if (project) {
         openModal(project);
@@ -942,6 +957,12 @@ window.editProject = function(id) {
 window.deleteProject = async function(id) {
     const project = projects.find(p => p.id === id);
     if (!project) return;
+
+    const password = prompt("Digite a senha de administrador para excluir este projeto:");
+    if (password !== "40028922") {
+        alert("Senha incorreta! Ação cancelada.");
+        return;
+    }
 
     const confirmDelete = confirm(`Tem certeza que deseja excluir o projeto "${project.name}"?\n(Nota: Esta ação removerá o registro do dashboard, mas não apagará pastas físicas por questões de segurança).`);
     if (!confirmDelete) return;
