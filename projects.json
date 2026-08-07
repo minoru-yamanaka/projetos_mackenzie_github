@@ -402,7 +402,7 @@
     {
         "id": "proj_site_mecanismos_de_homeostase_3104",
         "name": "🏥 Homeostase Mack V4 - Sistema de Gerenciamento & Dashboard de Mecanismos de Homeostase",
-        "description": "Plataforma Web Full-Stack para análise, visualização interativa e gerenciamento da Matriz Curricular de **Mecanismos de Homeostase** da **Faculdade de Medicina Mackenzie**. 🌐 **Aplicação em Produção (Live Demo):** [http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/](http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/) ![License](https://img.shields.io/badge/License-Proprietary-rose)",
+        "description": "Plataforma Web Full-Stack para análise, visualização interativa e gerenciamento da Matriz Curricular de **Mecanismos de Homeostase** da **Faculdade de Medicina Mackenzie**. 🌐 **Aplicação em Produção (Live Demo):** [http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/](http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/) ![License](https://img.shields.io/badge/License-Proprietary-rose)",
         "techs": [
             "HTML5",
             "Node.js",
@@ -421,7 +421,7 @@
             "Minoru"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mecanismos_de_homeostase",
-        "siteLink": "http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/"
+        "siteLink": "http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/"
     },
     {
         "id": "proj_site_onboard_medicina_mackenzie_3108",
