@@ -142,6 +142,8 @@ O servidor expõe uma API REST simples em `http://localhost:3000/api/projects`:
 
 ---
 
-## 👨‍💻 Desenvolvido para
+## 👨‍💻 Desenvolvimento e Supervisão
 
-**Universidade Presbiteriana Mackenzie** — Hub de projetos acadêmicos pessoais.
+- **Desenvolvido para:** **Universidade Presbiteriana Mackenzie** — Hub de projetos acadêmicos pessoais.
+- **Desenvolvedor:** [Minoru Yamanaka](https://linkedin.com/in/minoru-yamanaka) (Este painel funciona como um espelho demonstrativo do servidor local de desenvolvimento. Alterações permanentes na estrutura física e de banco de dados devem ser efetuadas localmente).
+- **Supervisão:** [Guilherme Vergara](https://www.linkedin.com/in/guilherme-vergara) (Os projetos estão sob sua supervisão e as alterações devem ser aprovadas por ele).
