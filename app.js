@@ -856,9 +856,13 @@ function createProjectCard(project) {
     card.className = "project-card";
     const formattedDate = formatDate(project.date);
     const formattedCreationDate = formatDate(project.creationDate || project.date);
-    const techTagsHTML = project.techs.map(tech => 
-        `<span class="tech-tag">${escapeHTML(tech.trim())}</span>`
-    ).join("");
+    const dbTechs = ["sql", "mysql", "postgresql", "sqlite", "mongodb", "sql server", "mariadb", "oracle", "db", "database", "banco de dados"];
+    const techTagsHTML = project.techs.map(tech => {
+        const trimmed = tech.trim();
+        const isDb = dbTechs.includes(trimmed.toLowerCase());
+        const extraClass = isDb ? " tech-tag-db" : "";
+        return `<span class="tech-tag${extraClass}">${escapeHTML(trimmed)}</span>`;
+    }).join("");
 
     const folderBadgeHTML = project.isLocalDir && project.dirName ? 
         `<div class="folder-badge" title="Pasta física vinculada: ${escapeHTML(project.dirName)}">

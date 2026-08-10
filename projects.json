@@ -496,25 +496,6 @@
         "lastAccessed": "2026-08-10T16:08:31.658Z"
     },
     {
-        "id": "proj_site_mapa_mental_interativo_onboarding_de_medicina_mackenzie_5216",
-        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
-        "description": "Este projeto foi gerado automaticamente através do **Mackenzie Projects Hub**.",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "CSS3"
-        ],
-        "creationDate": "2026-08-07",
-        "date": "2026-08-07",
-        "isLocalDir": true,
-        "dirName": "SITE_MAPA_MENTAL_INTERATIVO_ONBOARDING_DE_MEDICINA_MACKENZIE",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
         "id": "proj_mkt_mack_insta_5668",
         "name": "Dashboard de Marketing | Faculdade Mackenzie",
         "description": "🔗 **Link de Acesso**: [https://site-mackenzie-mkt-medicina-mackenz.vercel.app/](https://site-mackenzie-mkt-medicina-mackenz.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
@@ -662,7 +643,26 @@
         "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app"
     },
     {
-        "id": "proj_tp_caipira_mackenzie_db_5804",
+        "id": "proj_site_mapa_mental_interativo_onboarding_de_medicina_mackenzie_3863",
+        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
+        "description": "Este projeto foi gerado automaticamente através do **Mackenzie Projects Hub**.",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS3"
+        ],
+        "creationDate": "2026-08-07",
+        "date": "2026-08-10",
+        "isLocalDir": true,
+        "dirName": "SITE_MAPA_MENTAL_INTERATIVO_ONBOARDING_DE_MEDICINA_MACKENZIE",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "",
+        "siteLink": ""
+    },
+    {
+        "id": "proj_tp_caipira_mackenzie_db_3888",
         "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
         "description": "Aplicação web interativa, moderna e responsiva deseSnvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online**: [Link de Visualização](http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/) ---",
         "techs": [
@@ -685,7 +685,7 @@
         "siteLink": "http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/"
     },
     {
-        "id": "proj_site_avaliacao_360_prototipo_2484",
+        "id": "proj_site_avaliacao_360_prototipo_5986",
         "name": "Avaliacao 360 Prototipo",
         "description": "Projeto importado automaticamente a partir da pasta local.",
         "techs": [
@@ -702,7 +702,7 @@
         "siteLink": ""
     },
     {
-        "id": "proj_site_enamed_pesquisa_2504",
+        "id": "proj_site_enamed_pesquisa_6037",
         "name": "Enamed Pesquisa",
         "description": "Projeto importado automaticamente a partir da pasta local.",
         "techs": [

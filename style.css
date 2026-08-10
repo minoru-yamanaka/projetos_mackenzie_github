@@ -1181,6 +1181,19 @@ body {
     color: var(--color-cyan);
 }
 
+.tech-tag.tech-tag-db {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: var(--color-yellow);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+.tech-tag.tech-tag-db:hover {
+    border-color: var(--color-yellow);
+    color: #0a0e17;
+    background-color: var(--color-yellow);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
 .meta-info {
     display: flex;
     justify-content: space-between;
