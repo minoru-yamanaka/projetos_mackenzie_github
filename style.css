@@ -1058,16 +1058,25 @@ body {
     border: 1px solid rgba(96, 165, 250, 0.2);
     font-size: 0.65rem;
     font-weight: 600;
-    padding: 0.15rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.3rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.folder-badge span {
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .folder-badge i {
     width: 10px;
     height: 10px;
+    flex-shrink: 0;
 }
 
 .project-desc {
