@@ -399,29 +399,6 @@
         "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io"
     },
     {
-        "id": "proj_site_mackenzie_academic_intelligence_db___copia_3096",
-        "name": "Portal de Envio e Gerenciamento de Atividades",
-        "description": "[Github](https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db) [site]() Aplicação web completa para envio, avaliação e exportação de atividades com 3 níveis de acesso: Aluno, Professor e Admin.",
-        "techs": [
-            "JavaScript",
-            "SQL",
-            "Node.js",
-            "Express",
-            "MySQL"
-        ],
-        "creationDate": "2026-07-08",
-        "date": "2026-07-08",
-        "isLocalDir": true,
-        "dirName": "SITE_PORTAL_DE_ENVIO_E_GERENCIAMENTO_DE_ATIVIDADES",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Márcia Soares",
-            "Sigisfredo Brenelli"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
-        "siteLink": ""
-    },
-    {
         "id": "proj_site_mecanismos_de_homeostase_3104",
         "name": "🏥 Homeostase Mack V4 - Sistema de Gerenciamento & Dashboard de Mecanismos de Homeostase",
         "description": "Plataforma Web Full-Stack para análise, visualização interativa e gerenciamento da Matriz Curricular de **Mecanismos de Homeostase** da **Faculdade de Medicina Mackenzie**. 🌐 **Aplicação em Produção (Live Demo):** [http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/](http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/) ![License](https://img.shields.io/badge/License-Proprietary-rose)",
@@ -496,31 +473,6 @@
         "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app"
     },
     {
-        "id": "proj_tp_caipira_mackenzie_db_3121",
-        "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
-        "description": "Aplicação web interativa, moderna e responsiva deseSnvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online**: [Link de Visualização](http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/) ---",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "Node.js",
-            "Express",
-            "CSS",
-            "SQL",
-            "MySQL"
-        ],
-        "creationDate": "2026-07-23",
-        "date": "2026-08-06",
-        "isLocalDir": true,
-        "dirName": "SITE_DASHBOARD_MACKENZIE_TESTE_DE_PROGRESSO_CONSORCIO_CAIPIRA_SP3_2026",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara",
-            "Viviane Capel"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira_db",
-        "siteLink": "http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/"
-    },
-    {
         "id": "proj_mkt_size_9505",
         "name": "Dashboard de Marketing | Size Mídias & Fintech",
         "description": "🔗 **Link de Acesso**: [https://mkt-size-dashboard.vercel.app/](https://mkt-size-dashboard.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
@@ -544,28 +496,6 @@
         "lastAccessed": "2026-08-10T16:08:31.658Z"
     },
     {
-        "id": "proj_mkt_mack_insta_2350",
-        "name": "Dashboard de Marketing | Faculdade Mackenzie",
-        "description": "🔗 **Link de Acesso**: [https://mkt-size-dashboard.vercel.app/](https://mkt-size-dashboard.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "Node.js",
-            "CSS"
-        ],
-        "creationDate": "2026-08-03",
-        "date": "2026-08-03",
-        "isLocalDir": true,
-        "dirName": "SITE_DASHBOARD_DE_MARKETING_FACULDADE_MACKENZIE",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Bruno Coutinho",
-            "Eduarda Coutinho"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mkt_medicina_mackenzie",
-        "siteLink": "https://mkt-size-dashboard.vercel.app/"
-    },
-    {
         "id": "proj_site_mapa_mental_interativo_onboarding_de_medicina_mackenzie_5216",
         "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
         "description": "Este projeto foi gerado automaticamente através do **Mackenzie Projects Hub**.",
@@ -585,52 +515,7 @@
         "siteLink": ""
     },
     {
-        "id": "proj_tp_caipira_mackenzie_db_5255",
-        "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
-        "description": "Aplicação web interativa, moderna e responsiva deseSnvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online**: [Link de Visualização](http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/) ---",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "Node.js",
-            "Express",
-            "CSS",
-            "SQL",
-            "MySQL"
-        ],
-        "creationDate": "2026-07-23",
-        "date": "2026-08-06",
-        "isLocalDir": true,
-        "dirName": "SITE_DASHBOARD_MACKENZIE_TESTE_DE_PROGRESSO_CONSORCIO_CAIPIRA_SP3_2026",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira_db",
-        "siteLink": "http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/"
-    },
-    {
-        "id": "proj_tp_caipira_mackenzie_9922",
-        "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
-        "description": "Aplicação web interativa [sem banco] , moderna e responsiva desenvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online (Vercel)**: [https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app](https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app) 🔗 **Painel do Projeto na Vercel**: [https://vercel.com/minoru-yamanaka-s-projects/site-mackenzie-tp-caipira](https://vercel.com/minoru-yamanaka-s-projects/site-mackenzie-tp-caipira)",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "CSS"
-        ],
-        "creationDate": "2026-07-20",
-        "date": "2026-08-03",
-        "isLocalDir": true,
-        "dirName": "SITE_DASHBOARD_MACKENZIE_TESTE_DE_PROGRESSO_CONSORCIO_CAIPIRA_SP3_2026",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara",
-            "Viviane Capel"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira",
-        "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app",
-        "lastAccessed": "2026-08-10T16:57:21.873Z"
-    },
-    {
-        "id": "proj_mkt_mack_insta_5202",
+        "id": "proj_mkt_mack_insta_5668",
         "name": "Dashboard de Marketing | Faculdade Mackenzie",
         "description": "🔗 **Link de Acesso**: [https://site-mackenzie-mkt-medicina-mackenz.vercel.app/](https://site-mackenzie-mkt-medicina-mackenz.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
         "techs": [
@@ -642,37 +527,56 @@
         "creationDate": "2026-08-03",
         "date": "2026-08-10",
         "isLocalDir": true,
-        "dirName": "SITE_DASHBOARD_DE_MARKETING_FACULDADE_MACKENZIE",
+        "dirName": "MKT_MACK_INSTA",
         "collaborators": [
-            "Minoru Yamanaka"
+            "Minoru"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mkt_medicina_mackenzie",
         "siteLink": "https://site-mackenzie-mkt-medicina-mackenz.vercel.app/"
     },
     {
-        "id": "proj_site_mackenzie_academic_intelligence_db_2399",
-        "name": "Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)",
-        "description": "Este repositório contém uma aplicação web de alta performance projetada para gerenciar o lançamento, acompanhamento e exportação de dados acadêmicos (alunos, professores, disciplinas, turmas, notas e frequências) da Universidade Mackenzie. [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db) [![Website](https://img.shields.io/badge/Acesso-Site_Online-brightgreen?logo=google-chrome)](http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io)",
+        "id": "proj_mkt_size_5674",
+        "name": "Dashboard de Marketing | Size Mídias & Fintech",
+        "description": "🔗 **Link de Acesso**: [https://mkt-size-dashboard.vercel.app/](https://mkt-size-dashboard.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
         "techs": [
             "JavaScript",
+            "HTML5",
+            "Node.js",
+            "CSS"
+        ],
+        "creationDate": "2026-07-28",
+        "date": "2026-08-03",
+        "isLocalDir": true,
+        "dirName": "MKT_SIZE",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/MKT_SIZE_DASHBOARD",
+        "siteLink": "https://mkt-size-dashboard.vercel.app/"
+    },
+    {
+        "id": "proj_site_avaliacao_360_5690",
+        "name": "Portal de Envio e Gerenciamento de Atividades",
+        "description": "Aplicação web completa para envio, avaliação e exportação de atividades com 3 níveis de acesso: Aluno, Professor e Admin.",
+        "techs": [
             "SQL",
+            "JavaScript",
             "Node.js",
             "Express",
             "MySQL"
         ],
-        "creationDate": "2026-07-02",
-        "date": "2026-07-23",
+        "creationDate": "2026-07-01",
+        "date": "2026-07-13",
         "isLocalDir": true,
-        "dirName": "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DATABASE_PORTAL_DE_DASHBOARD_DE_NOTAS",
+        "dirName": "SITE_AVALIACAO_360",
         "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara"
+            "Minoru"
         ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
-        "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io"
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_avaliacao_360",
+        "siteLink": ""
     },
     {
-        "id": "proj_site_competencias_mackmeds_4042",
+        "id": "proj_site_competencias_mackmeds_5732",
         "name": "🏥 MackMEDS V4 - Sistema de Gerenciamento & Dashboard de Competências Médicas",
         "description": "Plataforma Web Full-Stack para análise, visualização interativa e gerenciamento da Matriz Curricular de Competências Médicas da **Faculdade de Medicina Mackenzie**. 🌐 **Aplicação em Produção (Live Demo):** [http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/](http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/) ![License](https://img.shields.io/badge/License-Proprietary-rose)",
         "techs": [
@@ -688,72 +592,36 @@
         "creationDate": "2026-07-20",
         "date": "2026-07-22",
         "isLocalDir": true,
-        "dirName": "SITE_MACKMEDS_V4_SISTEMA_DE_GERENCIAMENTO_DASHBOARD_DE_COMPETENCIAS_MEDICAS",
+        "dirName": "site_competencias_mackmeds",
         "collaborators": [
-            "Minoru Yamanaka"
+            "Minoru"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds",
-        "siteLink": "http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/",
-        "lastAccessed": "2026-08-10T16:45:00.180Z"
+        "siteLink": "http://y11pev92erhkdl3rogyrrgv0.2.24.106.92.sslip.io/"
     },
     {
-        "id": "proj_site_avaliacao_360_7531",
-        "name": "Portal de Envio e Gerenciamento de Atividades",
-        "description": "Aplicação web completa para envio, avaliação e exportação de atividades com 3 níveis de acesso: Aluno, Professor e Admin.",
+        "id": "proj_site_mackenzie_academic_intelligence_db_5768",
+        "name": "Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)",
+        "description": "Este repositório contém uma aplicação web de alta performance projetada para gerenciar o lançamento, acompanhamento e exportação de dados acadêmicos (alunos, professores, disciplinas, turmas, notas e frequências) da Universidade Mackenzie. [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db) [![Website](https://img.shields.io/badge/Acesso-Site_Online-brightgreen?logo=google-chrome)](http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io)",
         "techs": [
-            "SQL",
             "JavaScript",
+            "SQL",
             "Node.js",
             "Express",
             "MySQL"
         ],
-        "creationDate": "2026-07-01",
-        "date": "2026-07-13",
+        "creationDate": "2026-07-02",
+        "date": "2026-07-23",
         "isLocalDir": true,
-        "dirName": "SITE_PORTAL_DE_ENVIO_E_GERENCIAMENTO_DE_ATIVIDADES",
+        "dirName": "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DB",
         "collaborators": [
-            "Minoru Yamanaka"
+            "Minoru"
         ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_avaliacao_360",
-        "siteLink": ""
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
+        "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io"
     },
     {
-        "id": "proj_site_enamed_pesquisa_7561",
-        "name": "Enamed Pesquisa",
-        "description": "Projeto importado automaticamente a partir da pasta local.",
-        "techs": [
-            "Python"
-        ],
-        "creationDate": "2026-07-15",
-        "date": "2026-07-16",
-        "isLocalDir": true,
-        "dirName": "SITE_ENAMED_PESQUISA",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
-        "id": "proj_site_avaliacao_360_prototipo_9322",
-        "name": "Avaliacao 360 Prototipo",
-        "description": "Projeto importado automaticamente a partir da pasta local.",
-        "techs": [
-            "Node.js"
-        ],
-        "creationDate": "2026-07-01",
-        "date": "2026-07-01",
-        "isLocalDir": true,
-        "dirName": "SITE_AVALIACAO_360_PROTOTIPO",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
-        "id": "proj_site_mackenzie_academic_intelligence_db___copia_9370",
+        "id": "proj_site_mackenzie_academic_intelligence_db___copia_5784",
         "name": "Portal de Envio e Gerenciamento de Atividades",
         "description": "[Github](https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db) [site]() Aplicação web completa para envio, avaliação e exportação de atividades com 3 níveis de acesso: Aluno, Professor e Admin.",
         "techs": [
@@ -766,11 +634,87 @@
         "creationDate": "2026-07-08",
         "date": "2026-07-08",
         "isLocalDir": true,
-        "dirName": "SITE_PORTAL_DE_ENVIO_E_GERENCIAMENTO_DE_ATIVIDADES",
+        "dirName": "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DB - Copia",
         "collaborators": [
-            "Minoru Yamanaka"
+            "Minoru"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
+        "siteLink": ""
+    },
+    {
+        "id": "proj_tp_caipira_mackenzie_5794",
+        "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
+        "description": "Aplicação web interativa, moderna e responsiva desenvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online (Vercel)**: [https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app](https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app) 🔗 **Painel do Projeto na Vercel**: [https://vercel.com/minoru-yamanaka-s-projects/site-mackenzie-tp-caipira](https://vercel.com/minoru-yamanaka-s-projects/site-mackenzie-tp-caipira)",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS"
+        ],
+        "creationDate": "2026-07-20",
+        "date": "2026-08-03",
+        "isLocalDir": true,
+        "dirName": "TP_CAIPIRA_MACKENZIE",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira",
+        "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app"
+    },
+    {
+        "id": "proj_tp_caipira_mackenzie_db_5804",
+        "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
+        "description": "Aplicação web interativa, moderna e responsiva deseSnvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online**: [Link de Visualização](http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/) ---",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "Node.js",
+            "Express",
+            "CSS",
+            "SQL",
+            "MySQL"
+        ],
+        "creationDate": "2026-07-23",
+        "date": "2026-08-06",
+        "isLocalDir": true,
+        "dirName": "TP_CAIPIRA_MACKENZIE_DB",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira_db",
+        "siteLink": "http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/"
+    },
+    {
+        "id": "proj_site_avaliacao_360_prototipo_2484",
+        "name": "Avaliacao 360 Prototipo",
+        "description": "Projeto importado automaticamente a partir da pasta local.",
+        "techs": [
+            "Node.js"
+        ],
+        "creationDate": "2026-07-01",
+        "date": "2026-08-10",
+        "isLocalDir": true,
+        "dirName": "SITE_AVALIACAO_360_prototipo",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "",
+        "siteLink": ""
+    },
+    {
+        "id": "proj_site_enamed_pesquisa_2504",
+        "name": "Enamed Pesquisa",
+        "description": "Projeto importado automaticamente a partir da pasta local.",
+        "techs": [
+            "Python"
+        ],
+        "creationDate": "2026-07-15",
+        "date": "2026-07-16",
+        "isLocalDir": true,
+        "dirName": "site_enamed_pesquisa",
+        "collaborators": [
+            "Minoru"
+        ],
+        "repoLink": "",
         "siteLink": ""
     }
 ]
