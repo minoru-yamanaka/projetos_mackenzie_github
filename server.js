@@ -570,7 +570,7 @@ function scanAndSyncLocalFolders() {
                     date: dates.date,
                     isLocalDir: true,
                     dirName: folderName,
-                    collaborators: ["Minoru"],
+                    collaborators: ["Minoru Yamanaka"],
                     repoLink: gitRepoLink || extractedLinks.repoLink,
                     siteLink: extractedLinks.siteLink
                 };
