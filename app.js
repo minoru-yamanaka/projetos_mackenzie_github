@@ -117,6 +117,7 @@ const LOCAL_FOLDERS_LIST = [
 
 // Gerenciamento de Estado
 let projects = [];
+let collaboratorsMap = {}; // Mapeamento de links do LinkedIn para colaboradores
 let isServerConnected = false;
 let activeRecencyFilter = null; // null = sem filtro | 'recente' | 'medio' | 'antigo'
 const API_URL = '/api/projects';
@@ -197,6 +198,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupEventListeners();
     await checkServerConnection();
     await loadProjects();
+    await loadCollaboratorsMap();
 
     // Mostra aviso de demonstração se for modo estático/Vercel (servidor offline)
     if (!isServerConnected && !sessionStorage.getItem("demo_notice_closed")) {
@@ -267,6 +269,90 @@ async function loadProjects() {
 // Salva projetos no LocalStorage (Modo Offline)
 function saveProjectsFallback() {
     localStorage.setItem("mackenzie_projects", JSON.stringify(projects));
+}
+
+// Carrega o mapeamento de colaboradores do JSON ou usa fallback
+async function loadCollaboratorsMap() {
+    // Fallback em memória baseado na lista inicial de contatos do usuário
+    const INITIAL_COLLABORATORS = {
+        "Beatriz Coviello": {
+            "linkedin": "https://www.linkedin.com/in/beatriz-martin-coviello-00201318a",
+            "whatsapp": ""
+        },
+        "Gabriel Abreu": {
+            "linkedin": "https://www.linkedin.com/in/gabriel-ramos-abreu",
+            "whatsapp": ""
+        },
+        "Guilherme Vergara": {
+            "linkedin": "https://www.linkedin.com/in/guilherme-vergara",
+            "whatsapp": ""
+        },
+        "Eduarda Carvalho": {
+            "linkedin": "https://www.linkedin.com/in/eduarda-coutinho-de-carvalho-0b40471a0",
+            "whatsapp": ""
+        },
+        "Bruno Coutinho": {
+            "linkedin": "https://www.linkedin.com/in/bruno-coutinho-a636a4146",
+            "whatsapp": ""
+        },
+        "Enzo Marchi": {
+            "linkedin": "https://www.linkedin.com/in/enzo-de-marchi-4876b0276",
+            "whatsapp": ""
+        },
+        "Minoru Yamanaka": {
+            "linkedin": "https://www.linkedin.com/in/minoru-yamanaka",
+            "whatsapp": "5511959473402"
+        },
+        "Pedro Hauy": {
+            "linkedin": "https://www.linkedin.com/in/pedro-hauy-579935293",
+            "whatsapp": "5511997904776"
+        },
+        "Viviane Capel": {
+            "linkedin": "https://www.linkedin.com/in/viviane-a-s-b-capeli-536341243",
+            "whatsapp": ""
+        },
+        "Márcia Soares": {
+            "linkedin": "https://www.linkedin.com/in/márcia-oliveira-mayo-soares-61990635",
+            "whatsapp": ""
+        },
+        "Solange Bricola": {
+            "linkedin": "https://www.linkedin.com/in/solange-a-p-c-bricola-3b71b2190",
+            "whatsapp": ""
+        },
+        "Sigisfredo Brenelli": {
+            "linkedin": "https://www.linkedin.com/in/sigisfredo-brenelli-73b90567",
+            "whatsapp": ""
+        },
+        "Ana Paternez": {
+            "linkedin": "",
+            "whatsapp": ""
+        },
+        "João Tadei": {
+            "linkedin": "",
+            "whatsapp": ""
+        },
+        "Lícia Porfirio": {
+            "linkedin": "https://linkedin.com/in/lícia-ribeiro-porfírio-2b886599",
+            "whatsapp": ""
+        },
+        "Augusto Gottsfritz": {
+            "linkedin": "https://linkedin.com/in/augusto-gottsfritz",
+            "whatsapp": ""
+        }
+    };
+
+    try {
+        const response = await fetch('/collaborators.json');
+        if (response.ok) {
+            collaboratorsMap = await response.json();
+            console.log("Mapeamento de colaboradores carregado com sucesso.");
+        } else {
+            throw new Error();
+        }
+    } catch (e) {
+        console.warn("Não foi possível carregar collaborators.json pelo servidor. Usando fallback local.");
+        collaboratorsMap = { ...INITIAL_COLLABORATORS };
+    }
 }
 
 // Configura os ouvintes de eventos do sistema
@@ -468,6 +554,137 @@ function populateTechFilterOptions() {
     });
 }
 
+// Atualiza o card de detalhes do colaborador quando um é selecionado
+function updateCollaboratorDetailCard() {
+    const selected = collaboratorFilter ? collaboratorFilter.value : "";
+    const container = document.getElementById("collaborator-card-container");
+    if (!container) return;
+
+    if (!selected) {
+        container.classList.add("hidden");
+        container.innerHTML = "";
+        return;
+    }
+
+    // Procura no JSON carregado (case-insensitive)
+    const collabKeys = Object.keys(collaboratorsMap);
+    const matchedKey = collabKeys.find(key => key.trim().toLowerCase() === selected.trim().toLowerCase());
+
+    const name = matchedKey || selected;
+    let linkedinUrl = "";
+    let whatsappNum = "";
+
+    if (matchedKey) {
+        const val = collaboratorsMap[matchedKey];
+        if (typeof val === 'string') {
+            linkedinUrl = val;
+        } else if (val && typeof val === 'object') {
+            linkedinUrl = val.linkedin || "";
+            whatsappNum = val.whatsapp || "";
+        }
+    }
+
+    // Formata o link do LinkedIn se não for vazio e não tiver protocolo
+    if (linkedinUrl && !linkedinUrl.startsWith("http")) {
+        linkedinUrl = "https://" + linkedinUrl;
+    }
+
+    // Limpa caracteres não numéricos do WhatsApp para o link wa.me
+    let whatsappLink = "";
+    if (whatsappNum) {
+        const cleanNumber = whatsappNum.replace(/\D/g, "");
+        if (cleanNumber) {
+            whatsappLink = "https://wa.me/" + cleanNumber;
+        }
+    }
+
+    // Iniciais para o avatar
+    const initials = name.split(" ")
+        .map(n => n[0])
+        .slice(0, 2)
+        .join("")
+        .toUpperCase();
+
+    container.innerHTML = `
+        <div class="collaborator-info-wrapper">
+            <div class="collaborator-avatar">${initials}</div>
+            <div class="collaborator-text">
+                <span class="collaborator-name">${escapeHTML(name)}</span>
+                <span class="collaborator-role">Colaborador Mackenzie</span>
+            </div>
+        </div>
+        <div class="collaborator-actions">
+            ${whatsappLink ? `
+                <a href="${escapeHTML(whatsappLink)}" target="_blank" class="btn-whatsapp-collab">
+                    <i data-lucide="message-circle"></i>
+                    <span>WhatsApp</span>
+                </a>
+            ` : `
+                <button class="btn-whatsapp-collab disabled" title="WhatsApp não configurado">
+                    <i data-lucide="message-circle"></i>
+                    <span>Sem WhatsApp</span>
+                </button>
+            `}
+            
+            ${linkedinUrl ? `
+                <a href="${escapeHTML(linkedinUrl)}" target="_blank" class="btn-linkedin">
+                    <i data-lucide="linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            ` : `
+                <button class="btn-linkedin disabled" title="LinkedIn não configurado">
+                    <i data-lucide="linkedin"></i>
+                    <span>Sem LinkedIn</span>
+                </button>
+            `}
+            <button class="btn-close-collab" onclick="clearCollaboratorFilter()" title="Limpar filtro">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    `;
+
+    container.classList.remove("hidden");
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+}
+
+// Limpa o filtro de colaborador selecionado
+window.clearCollaboratorFilter = function() {
+    if (collaboratorFilter) {
+        collaboratorFilter.value = "";
+        renderProjects();
+    }
+};
+
+// Seleciona um colaborador ao clicar na tag dele em qualquer card de projeto
+window.selectCollaboratorFilter = function(name) {
+    if (collaboratorFilter) {
+        // Encontra a opção no dropdown
+        const options = Array.from(collaboratorFilter.options);
+        const match = options.find(opt => opt.value.trim().toLowerCase() === name.trim().toLowerCase());
+
+        if (match) {
+            collaboratorFilter.value = match.value;
+        } else {
+            // Caso por algum motivo o colaborador não esteja nas opções ativas do select
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            collaboratorFilter.appendChild(option);
+            collaboratorFilter.value = name;
+        }
+
+        renderProjects();
+
+        // Rola suavemente até a seção de projetos para ver os resultados filtrados
+        const projectsSection = document.querySelector(".projects-section");
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+};
+
 // Popula o dropdown de filtro de colaboradores dinamicamente sem duplicar por case sensitiveness
 function populateCollaboratorFilterOptions() {
     const collabMap = new Map(); // chave: minúsculo, valor: formato original (primeira ocorrência)
@@ -588,6 +805,9 @@ function renderProjects() {
     const selectedCreationTime = creationTimeFilter ? creationTimeFilter.value : "";
     const sortOrder = sortSelect.value;
 
+    // Atualiza a exibição do card de detalhes do colaborador
+    updateCollaboratorDetailCard();
+
     let filtered = projects.filter(p => {
         const matchesQuery = p.name.toLowerCase().includes(query) || 
                              p.description.toLowerCase().includes(query);
@@ -665,9 +885,13 @@ function createProjectCard(project) {
             
             <!-- Colaboradores -->
             ${project.collaborators && project.collaborators.length > 0 ? 
-                `<div class="card-collaborators" title="Colaboradores: ${escapeHTML(project.collaborators.join(', '))}">
+                `<div class="card-collaborators">
                     <i data-lucide="users"></i>
-                    <span>${escapeHTML(project.collaborators.join(', '))}</span>
+                    <span>
+                        ${project.collaborators.map((c, i) => 
+                            `<span class="collab-name-tag" onclick="selectCollaboratorFilter('${escapeHTML(c.trim())}')" title="Filtrar por ${escapeHTML(c.trim())}">${escapeHTML(c.trim())}</span>${i < project.collaborators.length - 1 ? ', ' : ''}`
+                        ).join('')}
+                    </span>
                  </div>` : ""}
 
             <!-- Acesso Rápido -->
