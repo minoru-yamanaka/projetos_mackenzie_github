@@ -99,6 +99,16 @@ const INITIAL_PROJECTS = [
         date: "2026-05-28",
         isLocalDir: true,
         dirName: "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE"
+    },
+    {
+        id: "proj_atividades_esafa_alunos_1_sem_26_8043",
+        name: "Dashboard de Recorrência de Palavras - ESAFA Mackenzie",
+        description: "Este projeto consiste em um dashboard interativo moderno de alta performance para monitoramento, filtragem e análise de recorrência de palavras nos relatórios diários de estágios dos alunos da ESAFA (Mackenzie) - 1º Semestre de 2026.",
+        techs: ["JavaScript", "Python", "HTML5", "CSS"],
+        creationDate: "2026-07-29",
+        date: "2026-08-10",
+        isLocalDir: true,
+        dirName: "atividades_esafa_alunos_1_sem_26"
     }
 ];
 
@@ -112,7 +122,8 @@ const LOCAL_FOLDERS_LIST = [
     "SITE_DOCUMENTOS_TESTES",
     "SITE_ENVIO_DE_ATIVIDADES",
     "SITE_ENVIO_DE_IMPRESSOES",
-    "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE"
+    "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE",
+    "atividades_esafa_alunos_1_sem_26"
 ];
 
 // Gerenciamento de Estado
