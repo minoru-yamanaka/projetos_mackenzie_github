@@ -633,9 +633,12 @@
         "isLocalDir": true,
         "dirName": "site_calendario_mackenzie_medicina",
         "collaborators": [
-            "Minoru Yamanaka"
+            "Minoru Yamanaka",
+            "João Tadei",
+            "Gabriel Abreu"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_calendario_mackenzie_medicina",
-        "siteLink": "https://site-calendario-mackenzie-medicina.vercel.app/"
+        "siteLink": "https://site-calendario-mackenzie-medicina.vercel.app/",
+        "lastAccessed": "2026-08-11T13:14:10.913Z"
     }
 ]
