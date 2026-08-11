@@ -249,7 +249,7 @@
     {
         "id": "proj_mkt_mack_insta_2898",
         "name": "Dashboard de Marketing | Faculdade Mackenzie",
-        "description": "🔗 **Link de Acesso**: [https://mkt-size-dashboard.vercel.app/](https://mkt-size-dashboard.vercel.app/) Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da **Size Mídias**. Ele foi projetado para ser alimentado dinamicamente por planilhas Excel estruturadas (como o arquivo `ANALISE_DE_DADOS_ MKT_SIZE .xlsx`). O dashboard foi construído utilizando conceitos modernos de design como **Glassmorphism**, **Dark Mode nativo**, e gráficos interativos com **ApexCharts**.",
+        "description": "Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da Faculdade de Medicina do  Mackenzie.",
         "techs": [
             "JavaScript",
             "HTML5",
@@ -352,7 +352,7 @@
             "Guilherme Vergara",
             "Gabriel Abreu"
         ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mecanismos_de_homeostase",
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mecanismos_de_homeostase_db",
         "siteLink": "http://a14b5ptair83xqzp3l04qw9t.2.24.106.92.sslip.io/",
         "lastAccessed": "2026-08-10T16:55:17.573Z"
     },
