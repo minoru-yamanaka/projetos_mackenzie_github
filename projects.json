@@ -540,25 +540,6 @@
         "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app"
     },
     {
-        "id": "proj_site_mapa_mental_interativo_onboarding_de_medicina_mackenzie_3863",
-        "name": "Mapa Mental Interativo — Onboarding de Medicina Mackenzie",
-        "description": "Este projeto foi gerado automaticamente através do **Mackenzie Projects Hub**.",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "CSS3"
-        ],
-        "creationDate": "2026-08-07",
-        "date": "2026-08-10",
-        "isLocalDir": true,
-        "dirName": "SITE_MAPA_MENTAL_INTERATIVO_ONBOARDING_DE_MEDICINA_MACKENZIE",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
         "id": "proj_tp_caipira_mackenzie_db_3888",
         "name": "Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)",
         "description": "Aplicação web interativa, moderna e responsiva deseSnvolvida para análise pedagógica e institucional dos resultados dos estudantes da **Faculdade de Medicina Mackenzie** no **Teste de Progresso (SP3 2026)** do **Consórcio Caipira**. 🌐 **Aplicação Online**: [Link de Visualização](http://fx6z7ntkte4xf5l4m9vd21sn.2.24.106.92.sslip.io/) ---",
