@@ -339,13 +339,11 @@
                     </div>
                 </div>
 
-                <!-- Dropdown para pasta existente -->
+                <!-- Campo de texto com sugestões para pasta existente -->
                 <div class="form-group hidden" id="local-dir-group">
                     <label for="project-dir-name">Nome da Pasta Local Existente</label>
-                    <select id="project-dir-name">
-                        <option value="">Selecione a pasta correspondente...</option>
-                        <!-- Pastas serão preenchidas dinamicamente via JS -->
-                    </select>
+                    <input type="text" id="project-dir-name" list="local-folders-list" placeholder="Selecione ou digite a pasta correspondente...">
+                    <datalist id="local-folders-list"></datalist>
                 </div>
 
                 <!-- Input para nova pasta física -->

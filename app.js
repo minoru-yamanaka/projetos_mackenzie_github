@@ -798,14 +798,15 @@ function setupCollaboratorsAutocomplete() {
 
 
 
-// Popula o dropdown com as pastas locais do workspace
+// Popula o datalist com as pastas locais do workspace
 function populateLocalDirOptions() {
-    selectDirName.innerHTML = '<option value="">Selecione a pasta correspondente...</option>';
+    const datalistFolders = document.getElementById("local-folders-list");
+    if (!datalistFolders) return;
+    datalistFolders.innerHTML = '';
     LOCAL_FOLDERS_LIST.sort().forEach(folder => {
         const option = document.createElement("option");
         option.value = folder;
-        option.textContent = folder;
-        selectDirName.appendChild(option);
+        datalistFolders.appendChild(option);
     });
 }
 
@@ -1016,14 +1017,8 @@ function openModal(project = null) {
         }
 
         if (project.isLocalDir && project.dirName) {
-            // Verifica se a pasta existe na lista local para decidir se exibe dropdown ou input de criação
-            if (LOCAL_FOLDERS_LIST.includes(project.dirName)) {
-                radioOptExisting.checked = true;
-                selectDirName.value = project.dirName;
-            } else {
-                radioOptCreate.checked = true;
-                inputNewDirName.value = project.dirName;
-            }
+            radioOptExisting.checked = true;
+            selectDirName.value = project.dirName;
         } else {
             radioOptNone.checked = true;
         }

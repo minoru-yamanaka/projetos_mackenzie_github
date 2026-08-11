@@ -118,7 +118,8 @@
             "React",
             "Express",
             "SQL",
-            "MySQL"
+            "MySQL",
+            "SQLite"
         ],
         "creationDate": "2026-05-14",
         "date": "2026-06-22",
@@ -759,5 +760,26 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_tp_caipira",
         "siteLink": "https://site-mackenzie-tp-caipira-k1g433miq-minoru-yamanaka-s-projects.vercel.app"
+    },
+    {
+        "id": "proj_site_calendario_mackenzie_medicina_6803",
+        "name": "Dashboard Calendário — Mackenzie Medicina",
+        "description": "Um dashboard analítico web moderno, interativo e de alto desempenho projetado para visualização, monitoramento e análise de alocação de docentes e escalas de aulas do curso de Medicina da faculdade Mackenzie (Semestre Letivo 2026.2).",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS",
+            "Chart.js",
+            "FontAwesome"
+        ],
+        "creationDate": "2026-08-10",
+        "date": "2026-08-10",
+        "isLocalDir": true,
+        "dirName": "site_calendario_mackenzie_medicina",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_calendario_mackenzie_medicina",
+        "siteLink": "https://site-calendario-mackenzie-medicina.vercel.app/"
     }
 ]
