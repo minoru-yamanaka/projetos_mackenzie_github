@@ -1477,6 +1477,11 @@ body {
     transition: var(--transition-smooth);
 }
 
+/* Remove a seta de dropdown padrão do input de texto com datalist */
+#project-dir-name::-webkit-calendar-picker-indicator {
+    display: none !important;
+}
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
