@@ -644,7 +644,7 @@
     {
         "id": "site_mackenzie_agendamento_de_feedback",
         "name": "🗓️ Sistema de Agendamento de Feedback aos Alunos — Mackenzie",
-        "description": "Este é um sistema Web moderno, elegante e de alta performance desenvolvido para professores da **Universidade Presbiteriana Mackenzie** organizarem, agendarem e visualizarem estatísticas sobre as sessões de feedback aplicadas aos seus respectivos alunos. A aplicação conta com um formulário de cadastro dinâmico em lote, dashboard estatístico com gráficos interativos e histórico com filtros, busca e controle de acesso por senha.",
+        "description": "[ ajustar o Banco / persistência] Este é um sistema Web performance desenvolvido para professores da **Universidade Presbiteriana Mackenzie** organizarem, agendarem e visualizarem estatísticas sobre as sessões de feedback aplicadas aos seus respectivos alunos. A aplicação conta com um formulário de cadastro dinâmico em lote, dashboard estatístico com gráficos interativos e histórico com filtros, busca e controle de acesso por senha.",
         "techs": [
             "Python",
             "HTML5",
