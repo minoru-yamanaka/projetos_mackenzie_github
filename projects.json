@@ -640,5 +640,25 @@
         "repoLink": "https://github.com/minoru-yamanaka/site_calendario_mackenzie_medicina",
         "siteLink": "https://site-calendario-mackenzie-medicina.vercel.app/",
         "lastAccessed": "2026-08-11T13:14:10.913Z"
+    },
+    {
+        "id": "site_mackenzie_agendamento_de_feedback",
+        "name": "🗓️ Sistema de Agendamento de Feedback aos Alunos — Mackenzie",
+        "description": "Este é um sistema Web moderno, elegante e de alta performance desenvolvido para professores da **Universidade Presbiteriana Mackenzie** organizarem, agendarem e visualizarem estatísticas sobre as sessões de feedback aplicadas aos seus respectivos alunos. A aplicação conta com um formulário de cadastro dinâmico em lote, dashboard estatístico com gráficos interativos e histórico com filtros, busca e controle de acesso por senha.",
+        "techs": [
+            "Python",
+            "HTML5",
+            "JavaScript",
+            "CSS"
+        ],
+        "creationDate": "2026-08-14",
+        "date": "2026-08-14",
+        "isLocalDir": true,
+        "dirName": "site_fomulario_professores_feedback",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_agendamento_de_feedback",
+        "siteLink": "https://site-mackenzie-agendamento-de-feedb.vercel.app/"
     }
 ]
