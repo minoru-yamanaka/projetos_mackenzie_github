@@ -663,5 +663,28 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_agendamento_de_feedback",
         "siteLink": "https://site-mackenzie-agendamento-de-feedb.vercel.app/"
+    },
+    {
+        "id": "site_dashboard_alocacao_equipe_mackteam_allo",
+        "name": "MackTeam Alloc — Dashboard de Alocação de Equipe (CCBS Medicina - UPM)",
+        "description": "O **MackTeam Alloc** é um portal inteligente e interativo de Business Intelligence (BI) projetado para o **Centro de Ciências Biológicas e da Saúde (CCBS) da Universidade Presbiteriana Mackenzie (UPM)**, com foco no curso de Medicina. O sistema facilita a gestão, mapeamento de comissões e análise de carga horária (aulas e gestão) do corpo docente e técnico de forma visual e performática.",
+        "techs": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Python",
+            "Pandas",
+            "Chart.js"
+        ],
+        "creationDate": "2026-08-17",
+        "date": "2026-08-17",
+        "isLocalDir": true,
+        "dirName": "site_dashboard_alocacao_equipe_mackteam_allo",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Margarete Jesus"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_dashboard_alocacao_equipe_mackteam_allo",
+        "siteLink": "https://site-dashboard-alocacao-equipe-mack.vercel.app/"
     }
 ]

@@ -1,0 +1,88 @@
+============================================================
+LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
+============================================================
+
+1. Projeto: Carômetro Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+2. Projeto: Chatbot Mackenzie - Desenvolvimento
+   Colaboradores: Minoru
+------------------------------------------------------------
+3. Projeto: Sistema de Correção de Provas
+   Colaboradores: Minoru
+------------------------------------------------------------
+4. Projeto: Grade Horária Semanal
+   Colaboradores: Minoru
+------------------------------------------------------------
+5. Projeto: Diário Acadêmico Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+6. Projeto: Central de Documentos Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+7. Projeto: Ambiente de Testes - Documentos
+   Colaboradores: Minoru
+------------------------------------------------------------
+8. Projeto: Envio de Atividades Acadêmicas
+   Colaboradores: MINORU
+------------------------------------------------------------
+9. Projeto: Gerenciador de Impressões Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+10. Projeto: Mackenzie Academic Intelligence DB
+   Colaboradores: LILIANE DELORENZI, GUILHERME VERGARA
+------------------------------------------------------------
+11. Projeto: Portal de Matriculas Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+12. Projeto: Dashboard de Marketing | Faculdade Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+13. Projeto: Portal de Envio e Gerenciamento de Atividades
+   Colaboradores: Minoru
+------------------------------------------------------------
+14. Projeto: Avaliacao 360 Prototipo
+   Colaboradores: Minoru
+------------------------------------------------------------
+15. Projeto: 🏥 MackMEDS V4 - Sistema de Gerenciamento & Dashboard de Competências Médicas
+   Colaboradores: Minoru
+------------------------------------------------------------
+16. Projeto: Enamed Pesquisa
+   Colaboradores: Minoru
+------------------------------------------------------------
+17. Projeto: 🎓 Mackenzie Academic Intelligence Dashboard
+   Colaboradores: Minoru
+------------------------------------------------------------
+18. Projeto: Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)
+   Colaboradores: Minoru
+------------------------------------------------------------
+19. Projeto: Portal de Envio e Gerenciamento de Atividades
+   Colaboradores: Minoru
+------------------------------------------------------------
+20. Projeto: 🏥 Homeostase Mack V4 - Sistema de Gerenciamento & Dashboard de Mecanismos de Homeostase
+   Colaboradores: Minoru
+------------------------------------------------------------
+21. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+22. Projeto: Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)
+   Colaboradores: Minoru
+------------------------------------------------------------
+23. Projeto: Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)
+   Colaboradores: Minoru
+------------------------------------------------------------
+24. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+25. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+26. Projeto: Dashboard de Recorrência de Palavras - ESAFA Mackenzie
+   Colaboradores: Minoru
+------------------------------------------------------------
+27. Projeto: Dashboard de Escalas e Métricas — Mackenzie Medicina
+   Colaboradores: Minoru
+------------------------------------------------------------
+28. Projeto: MackTeam Alloc — Dashboard de Alocação de Equipe (CCBS Medicina - UPM)
+   Colaboradores: Minoru
+------------------------------------------------------------
