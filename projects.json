@@ -686,5 +686,25 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_dashboard_alocacao_equipe_mackteam_allo",
         "siteLink": "https://site-dashboard-alocacao-equipe-mack.vercel.app/"
+    },
+    {
+        "id": "proj_site_nps_mackenzie_2sem26_0018",
+        "name": "📊 Dashboard de NPS - Medicina Mackenzie Alphaville",
+        "description": "> Painel analítico de satisfação e lealdade discente (Net Promoter Score) dos alunos da Faculdade de Medicina Mackenzie (Campus Alphaville) para o 2º Semestre de 2026. ---",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS"
+        ],
+        "creationDate": "2026-08-19",
+        "date": "2026-08-19",
+        "isLocalDir": true,
+        "dirName": "site_nps_mackenzie_2sem26",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Guilherme Vergara"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_nps_mackenzie_2sem26",
+        "siteLink": "https://site-nps-mackenzie-2sem26.vercel.app/"
     }
 ]

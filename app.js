@@ -109,6 +109,19 @@ const INITIAL_PROJECTS = [
         date: "2026-08-10",
         isLocalDir: true,
         dirName: "atividades_esafa_alunos_1_sem_26"
+    },
+    {
+        id: "site_nps_mackenzie_2sem26",
+        name: "📊 Dashboard de NPS - Medicina Mackenzie Alphaville",
+        description: "Painel analítico de satisfação e lealdade discente (Net Promoter Score) dos alunos da Faculdade de Medicina Mackenzie (Campus Alphaville) para o 2º Semestre de 2026.",
+        techs: ["HTML5", "CSS3", "JavaScript", "Python", "Pandas", "Chart.js", "Lucide Icons"],
+        creationDate: "2026-08-19",
+        date: "2026-08-19",
+        isLocalDir: true,
+        dirName: "site_nps_mackenzie_2sem26",
+        collaborators: ["Minoru Yamanaka", "Guilherme Vergara"],
+        repoLink: "https://github.com/minoru-yamanaka/site_nps_mackenzie_2sem26",
+        siteLink: "https://site-nps-mackenzie-2sem26.vercel.app/"
     }
 ];
 
@@ -123,7 +136,8 @@ const LOCAL_FOLDERS_LIST = [
     "SITE_ENVIO_DE_ATIVIDADES",
     "SITE_ENVIO_DE_IMPRESSOES",
     "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE",
-    "atividades_esafa_alunos_1_sem_26"
+    "atividades_esafa_alunos_1_sem_26",
+    "site_nps_mackenzie_2sem26"
 ];
 
 // Gerenciamento de Estado
