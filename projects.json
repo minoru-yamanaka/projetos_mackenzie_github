@@ -732,6 +732,7 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_gerador_de_declaracao_mackenzie",
         "siteLink": "https://site-gerador-de-declaracao-mackenzi.vercel.app/",
-        "lastAccessed": "2026-08-20T19:03:31.442Z"
+        "lastAccessed": "2026-08-20T19:03:31.442Z",
+        "requirePassword": true
     }
 ]
