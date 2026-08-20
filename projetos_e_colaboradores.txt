@@ -89,3 +89,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 29. Projeto: Dashboard de NPS — Medicina Mackenzie Alphaville
    Colaboradores: Minoru, Guilherme Vergara
 ------------------------------------------------------------
+30. Projeto: Gerador de Declarações - Curso de Medicina Mackenzie Barueri
+   Colaboradores: Minoru, Gabriel Abreu
+------------------------------------------------------------

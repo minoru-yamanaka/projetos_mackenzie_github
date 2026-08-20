@@ -685,7 +685,9 @@
             "Margarete Jesus"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_dashboard_alocacao_equipe_mackteam_allo",
-        "siteLink": "https://site-dashboard-alocacao-equipe-mack.vercel.app/"
+        "siteLink": "https://site-dashboard-alocacao-equipe-mack.vercel.app/",
+        "requirePassword": true,
+        "lastAccessed": "2026-08-20T19:04:52.466Z"
     },
     {
         "id": "proj_site_nps_mackenzie_2sem26_0018",
@@ -706,5 +708,30 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_nps_mackenzie_2sem26",
         "siteLink": "https://site-nps-mackenzie-2sem26.vercel.app/"
+    },
+    {
+        "id": "site_gerador_de_declaracao_mackenzie",
+        "name": "Gerador de Declarações - Curso de Medicina Mackenzie Barueri",
+        "description": "Um sistema web moderno, de alto desempenho e design premium desenvolvido para automatizar a geração e o preenchimento de declarações acadêmicas e administrativas.",
+        "techs": [
+            "HTML5",
+            "CSS",
+            "JavaScript",
+            "docxtemplater",
+            "PizZip",
+            "JSZip",
+            "SheetJS"
+        ],
+        "creationDate": "2026-08-20",
+        "date": "2026-08-20",
+        "isLocalDir": true,
+        "dirName": "site_gerador_de_declaracao_mackenzie",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Gabriel Abreu"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_gerador_de_declaracao_mackenzie",
+        "siteLink": "https://site-gerador-de-declaracao-mackenzi.vercel.app/",
+        "lastAccessed": "2026-08-20T19:03:31.442Z"
     }
 ]

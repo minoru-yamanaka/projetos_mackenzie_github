@@ -122,6 +122,19 @@ const INITIAL_PROJECTS = [
         collaborators: ["Minoru Yamanaka", "Guilherme Vergara"],
         repoLink: "https://github.com/minoru-yamanaka/site_nps_mackenzie_2sem26",
         siteLink: "https://site-nps-mackenzie-2sem26.vercel.app/"
+    },
+    {
+        id: "site_gerador_de_declaracao_mackenzie",
+        name: "Gerador de Declarações - Curso de Medicina Mackenzie Barueri",
+        description: "Um sistema web moderno, de alto desempenho e design premium desenvolvido para automatizar a geração e o preenchimento de declarações acadêmicas e administrativas.",
+        techs: ["HTML5", "CSS", "JavaScript", "docxtemplater", "PizZip", "JSZip", "SheetJS"],
+        creationDate: "2026-08-20",
+        date: "2026-08-20",
+        isLocalDir: true,
+        dirName: "site_gerador_de_declaracao_mackenzie",
+        collaborators: ["Minoru Yamanaka", "Gabriel Abreu"],
+        repoLink: "https://github.com/minoru-yamanaka/site_gerador_de_declaracao_mackenzie",
+        siteLink: "https://site-gerador-de-declaracao-mackenzi.vercel.app/"
     }
 ];
 
@@ -137,7 +150,8 @@ const LOCAL_FOLDERS_LIST = [
     "SITE_ENVIO_DE_IMPRESSOES",
     "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE",
     "atividades_esafa_alunos_1_sem_26",
-    "site_nps_mackenzie_2sem26"
+    "site_nps_mackenzie_2sem26",
+    "site_gerador_de_declaracao_mackenzie"
 ];
 
 // Gerenciamento de Estado
@@ -181,6 +195,7 @@ const inputCreationDate = document.getElementById("project-creation-date");
 const inputUpdateDate = document.getElementById("project-update-date");
 const inputRepoLink = document.getElementById("project-repo-link");
 const inputSiteLink = document.getElementById("project-site-link");
+const inputRequirePassword = document.getElementById("project-require-password");
 
 // Elementos do Modal de Aviso Demo (Vercel)
 const demoNoticeModal = document.getElementById("demo-notice-modal");
@@ -939,8 +954,8 @@ function createProjectCard(project) {
                 `}
                 
                 ${project.siteLink ? `
-                <a href="${escapeHTML(project.siteLink)}" target="_blank" class="quick-link-btn site" onclick="registerAccess('${project.id}')" title="Acessar Site">
-                    <i data-lucide="external-link"></i>
+                <a href="${escapeHTML(project.siteLink)}" target="_blank" class="quick-link-btn site${project.requirePassword ? ' locked' : ''}" onclick="handleSiteAccess(event, '${project.id}')" title="${project.requirePassword ? 'Acessar Site (Requer Senha)' : 'Acessar Site'}">
+                    <i data-lucide="${project.requirePassword ? 'lock' : 'external-link'}"></i>
                     <span>Visualizar Site</span>
                 </a>
                 ` : `
@@ -1029,6 +1044,9 @@ function openModal(project = null) {
         if (inputSiteLink) {
             inputSiteLink.value = project.siteLink || "";
         }
+        if (inputRequirePassword) {
+            inputRequirePassword.checked = !!project.requirePassword;
+        }
 
         if (project.isLocalDir && project.dirName) {
             radioOptExisting.checked = true;
@@ -1047,6 +1065,9 @@ function openModal(project = null) {
         }
         if (inputRepoLink) {
             inputRepoLink.value = "";
+        }
+        if (inputRequirePassword) {
+            inputRequirePassword.checked = false;
         }
         if (inputSiteLink) {
             inputSiteLink.value = "";
@@ -1091,6 +1112,7 @@ async function handleFormSubmit(e) {
     const date = inputUpdateDate.value;
     const repoLink = inputRepoLink ? inputRepoLink.value.trim() : "";
     const siteLink = inputSiteLink ? inputSiteLink.value.trim() : "";
+    const requirePassword = inputRequirePassword ? inputRequirePassword.checked : false;
 
     let isLocalDir = false;
     let dirName = "";
@@ -1127,7 +1149,8 @@ async function handleFormSubmit(e) {
         isLocalDir,
         dirName,
         repoLink,
-        siteLink
+        siteLink,
+        requirePassword
     };
 
     if (id) {
@@ -1283,6 +1306,25 @@ window.registerAccess = async function(id) {
     
     // Re-renderiza para atualizar o texto do card imediatamente
     renderProjects();
+};
+
+// Controla o acesso às URLs externas de Visualizar Site, solicitando senha se configurado
+window.handleSiteAccess = function(event, projectId) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project) return;
+    
+    if (project.requirePassword) {
+        event.preventDefault();
+        const password = prompt("Este site está bloqueado. Digite a senha para acessar:");
+        if (password === "40028922") {
+            window.registerAccess(projectId);
+            window.open(project.siteLink, "_blank");
+        } else {
+            alert("Acesso negado: Senha incorreta.");
+        }
+    } else {
+        window.registerAccess(projectId);
+    }
 };
 
 function formatDateTime(isoString) {

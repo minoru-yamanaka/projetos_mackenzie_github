@@ -1279,6 +1279,20 @@ body {
     transform: translateY(-2px);
 }
 
+.quick-link-btn.site.locked {
+    background-color: rgba(251, 191, 36, 0.05);
+    color: var(--color-yellow);
+    border-color: rgba(251, 191, 36, 0.15);
+}
+
+.quick-link-btn.site.locked:hover {
+    background-color: rgba(251, 191, 36, 0.1);
+    border-color: var(--color-yellow);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+    transform: translateY(-2px);
+}
+
 .quick-link-btn.disabled {
     background-color: rgba(255, 255, 255, 0.01);
     color: var(--text-muted);
