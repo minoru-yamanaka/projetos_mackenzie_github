@@ -734,5 +734,43 @@
         "siteLink": "https://site-gerador-de-declaracao-mackenzi.vercel.app/",
         "lastAccessed": "2026-08-20T19:03:31.442Z",
         "requirePassword": true
+    },
+    {
+        "id": "site_carometro_medicina_mackenzie",
+        "name": "Carômetro | Faculdade de Medicina Mackenzie 🎓⚕️",
+        "description": "Um álbum visual e interativo de identificação estudantil desenvolvido sob medida para a Faculdade de Medicina da Universidade Presbiteriana Mackenzie. Este sistema permite a consulta rápida, busca textual e filtragem de alunos de forma responsiva, moderna e otimizada.",
+        "techs": [
+            "HTML5",
+            "CSS",
+            "JavaScript",
+            "Python"
+        ],
+        "creationDate": "2026-08-21",
+        "date": "2026-08-21",
+        "isLocalDir": true,
+        "dirName": "site_carometro_medicina_mackenzie",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Gabriel Abreu"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_carometro_medicina_mackenzie",
+        "siteLink": "https://site-carometro-medicina-mackenzie.vercel.app/"
+    },
+    {
+        "id": "proj_site_formulario_requisicao_aula_pratica_laborat_rio_7796",
+        "name": "Requisição para Aula Prática - Medicina Mackenzie Alphaville",
+        "description": "Este projeto consiste em uma interface web interativa de formulário para requisição de aulas práticas de laboratório, desenvolvido especificamente para o curso de Medicina da Universidade Presbiteriana Mackenzie, campus Alphaville. O formulário otimiza o fluxo de solicitação de recursos para as aulas, permitindo que os professores especifiquem com precisão os materiais, kits, reagentes e lâminas histológicas necessárias para cada atividade prática. ---",
+        "techs": [
+            "HTML5"
+        ],
+        "creationDate": "2026-08-20",
+        "date": "2026-08-20",
+        "isLocalDir": true,
+        "dirName": "site_formulario_requisicao_aula_pratica_laboratório",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_formulario_requisicao_aula_pratica_laboratorios",
+        "siteLink": "https://site-formulario-requisicao-aula-pra.vercel.app/"
     }
 ]

@@ -92,3 +92,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 30. Projeto: Gerador de Declarações - Curso de Medicina Mackenzie Barueri
    Colaboradores: Minoru, Gabriel Abreu
 ------------------------------------------------------------
+31. Projeto: Carômetro | Faculdade de Medicina Mackenzie 🎓⚕️
+   Colaboradores: Minoru, Gabriel Abreu
+------------------------------------------------------------
