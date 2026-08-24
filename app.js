@@ -135,6 +135,19 @@ const INITIAL_PROJECTS = [
         collaborators: ["Minoru Yamanaka", "Gabriel Abreu"],
         repoLink: "https://github.com/minoru-yamanaka/site_gerador_de_declaracao_mackenzie",
         siteLink: "https://site-gerador-de-declaracao-mackenzi.vercel.app/"
+    },
+    {
+        id: "site_transferencia_e_a_equivalencia",
+        name: "Validador de Equivalência Curricular - Medicina Mackenzie",
+        description: "Um simulador e validador web interativo e responsivo para processos de transferência, aproveitamento de estudos e análise de equivalência curricular acadêmica para o curso de Medicina da Universidade Presbiteriana Mackenzie.",
+        techs: ["HTML5", "CSS", "JavaScript", "jsPDF", "SheetJS"],
+        creationDate: "2026-08-24",
+        date: "2026-08-24",
+        isLocalDir: true,
+        dirName: "site_transferencia_e_a_equivalencia",
+        collaborators: ["Minoru Yamanaka", "Guilherme Vergara"],
+        repoLink: "https://github.com/minoru-yamanaka/site_transferencia_e_a_equivalencia_medicina_mackenzie",
+        siteLink: "https://site-transferencia-e-a-equivalencia.vercel.app/"
     }
 ];
 
@@ -151,7 +164,8 @@ const LOCAL_FOLDERS_LIST = [
     "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE",
     "atividades_esafa_alunos_1_sem_26",
     "site_nps_mackenzie_2sem26",
-    "site_gerador_de_declaracao_mackenzie"
+    "site_gerador_de_declaracao_mackenzie",
+    "site_transferencia_e_a_equivalencia"
 ];
 
 // Gerenciamento de Estado

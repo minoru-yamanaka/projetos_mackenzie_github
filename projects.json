@@ -772,5 +772,27 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_formulario_requisicao_aula_pratica_laboratorios",
         "siteLink": "https://site-formulario-requisicao-aula-pra.vercel.app/"
+    },
+    {
+        "id": "site_transferencia_e_a_equivalencia",
+        "name": "Validador de Equivalência Curricular - Medicina Mackenzie",
+        "description": "Um simulador e validador web interativo e responsivo para processos de transferência, aproveitamento de estudos e análise de equivalência curricular acadêmica para o curso de Medicina da Universidade Presbiteriana Mackenzie.",
+        "techs": [
+            "HTML5",
+            "CSS",
+            "JavaScript",
+            "jsPDF",
+            "SheetJS"
+        ],
+        "creationDate": "2026-08-24",
+        "date": "2026-08-24",
+        "isLocalDir": true,
+        "dirName": "site_transferencia_e_a_equivalencia",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Guilherme Vergara"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_transferencia_e_a_equivalencia_medicina_mackenzie",
+        "siteLink": "https://site-transferencia-e-a-equivalencia.vercel.app/"
     }
 ]
