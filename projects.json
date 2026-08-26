@@ -794,5 +794,26 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_transferencia_e_a_equivalencia_medicina_mackenzie",
         "siteLink": "https://site-transferencia-e-a-equivalencia.vercel.app/"
+    },
+    {
+        "id": "proj_site_monitoria_da_faculdade_de_medicina_mackenzie_9885",
+        "name": "Sistema de Gestão de Monitorias Acadêmicas - Faculdade de Medicina Mackenzie",
+        "description": "Uma plataforma web interativa, responsiva e premium desenvolvida para simplificar e automatizar o gerenciamento de monitorias acadêmicas da Faculdade de Medicina da Universidade Presbiteriana Mackenzie. O sistema centraliza informações de monitores, disciplinas e agendas semanais, eliminando processos manuais em planilhas soltas.",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS"
+        ],
+        "creationDate": "2026-08-26",
+        "date": "2026-08-26",
+        "isLocalDir": true,
+        "dirName": "site_monitoria_da_faculdade_de_medicina_mackenzie",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Guilherme Vergara"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_monitoria_da_faculdade_de_medicina_mackenzie",
+        "siteLink": "https://minoru-yamanaka-sitemonitoriadafacu.vercel.app/",
+        "lastAccessed": "2026-08-26T16:21:14.546Z"
     }
 ]

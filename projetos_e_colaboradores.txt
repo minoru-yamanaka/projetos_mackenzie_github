@@ -98,3 +98,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 32. Projeto: Validador de Equivalência Curricular - Medicina Mackenzie
    Colaboradores: Minoru, Guilherme Vergara
 ------------------------------------------------------------
+33. Projeto: Sistema de Gestão de Monitorias Acadêmicas - Faculdade de Medicina Mackenzie
+   Colaboradores: Minoru, Guilherme Vergara
+------------------------------------------------------------
