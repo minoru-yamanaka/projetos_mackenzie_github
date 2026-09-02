@@ -101,3 +101,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 33. Projeto: Sistema de Gestão de Monitorias Acadêmicas - Faculdade de Medicina Mackenzie
    Colaboradores: Minoru, Guilherme Vergara
 ------------------------------------------------------------
+34. Projeto: 🩺 MackMEDS V4 - Portal Curricular de Competências Médicas
+   Colaboradores: Minoru
+------------------------------------------------------------

@@ -594,7 +594,8 @@
             "Minoru Yamanaka"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_dashboard",
-        "siteLink": "http://u2m74nd8km750rqvfszgqr0n.2.24.106.92.sslip.io/dashboard-notas/"
+        "siteLink": "http://u2m74nd8km750rqvfszgqr0n.2.24.106.92.sslip.io/dashboard-notas/",
+        "lastAccessed": "2026-08-31T12:15:07.929Z"
     },
     {
         "id": "proj_site_mackenzie_academic_intelligence_db_1707",
@@ -615,7 +616,8 @@
             "Minoru Yamanaka"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
-        "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io"
+        "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io",
+        "lastAccessed": "2026-08-31T12:15:40.037Z"
     },
     {
         "id": "proj_site_calendario_mackenzie_medicina_6803",
@@ -793,7 +795,8 @@
             "Guilherme Vergara"
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_transferencia_e_a_equivalencia_medicina_mackenzie",
-        "siteLink": "https://site-transferencia-e-a-equivalencia.vercel.app/"
+        "siteLink": "https://site-transferencia-e-a-equivalencia.vercel.app/",
+        "lastAccessed": "2026-08-31T12:13:25.972Z"
     },
     {
         "id": "proj_site_monitoria_da_faculdade_de_medicina_mackenzie_9885",
@@ -815,5 +818,29 @@
         "repoLink": "https://github.com/minoru-yamanaka/site_monitoria_da_faculdade_de_medicina_mackenzie",
         "siteLink": "https://minoru-yamanaka-sitemonitoriadafacu.vercel.app/",
         "lastAccessed": "2026-08-26T16:21:14.546Z"
+    },
+    {
+        "id": "proj_site_competencias_mackmeds_2_6909",
+        "name": "🩺 MackMEDS V4 - Portal Curricular de Competências Médicas",
+        "description": "Plataforma interativa para consulta, exploração curricular, mapa mental e exportação de relatórios da Matriz de Competências Médicas da **Faculdade de Medicina Mackenzie**.",
+        "techs": [
+            "HTML5",
+            "Node.js",
+            "React",
+            "Express",
+            "TailwindCSS",
+            "JavaScript",
+            "SQLite",
+            "SQL"
+        ],
+        "creationDate": "2026-09-02",
+        "date": "2026-09-02",
+        "isLocalDir": true,
+        "dirName": "site_competencias_mackmeds_2",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds_tabelinha_prof",
+        "siteLink": "https://site-mackenzie-mackmeds-tabelinha-p.vercel.app/"
     }
 ]

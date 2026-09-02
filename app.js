@@ -148,6 +148,19 @@ const INITIAL_PROJECTS = [
         collaborators: ["Minoru Yamanaka", "Guilherme Vergara"],
         repoLink: "https://github.com/minoru-yamanaka/site_transferencia_e_a_equivalencia_medicina_mackenzie",
         siteLink: "https://site-transferencia-e-a-equivalencia.vercel.app/"
+    },
+    {
+        id: "proj_site_competencias_mackmeds_2_6909",
+        name: "🩺 MackMEDS V4 - Portal Curricular de Competências Médicas",
+        description: "Plataforma interativa para consulta, exploração curricular, mapa mental e exportação de relatórios da Matriz de Competências Médicas da **Faculdade de Medicina Mackenzie**.",
+        techs: ["HTML5", "Node.js", "React", "Express", "TailwindCSS", "JavaScript", "SQLite", "SQL"],
+        creationDate: "2026-09-02",
+        date: "2026-09-02",
+        isLocalDir: true,
+        dirName: "site_competencias_mackmeds_2",
+        collaborators: ["Minoru Yamanaka"],
+        repoLink: "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds_tabelinha_prof",
+        siteLink: "https://site-mackenzie-mackmeds-tabelinha-p.vercel.app/"
     }
 ];
 
@@ -165,7 +178,8 @@ const LOCAL_FOLDERS_LIST = [
     "atividades_esafa_alunos_1_sem_26",
     "site_nps_mackenzie_2sem26",
     "site_gerador_de_declaracao_mackenzie",
-    "site_transferencia_e_a_equivalencia"
+    "site_transferencia_e_a_equivalencia",
+    "site_competencias_mackmeds_2"
 ];
 
 // Gerenciamento de Estado
