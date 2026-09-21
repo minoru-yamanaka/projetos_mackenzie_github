@@ -842,5 +842,51 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds_tabelinha_prof",
         "siteLink": "https://site-mackenzie-mackmeds-tabelinha-p.vercel.app/"
+    },
+    {
+        "id": "proj_avaliacao_interpares_2sem26_21_09_26",
+        "name": "📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)",
+        "description": "Portal interativo para análise de desempenho, tríade de competências (Conhecimentos, Habilidades e Atitudes) e feedbacks qualitativos da Avaliação Interpares 2026.2 do curso de Medicina Mackenzie.",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS",
+            "Python",
+            "SheetJS"
+        ],
+        "creationDate": "2026-09-21",
+        "date": "2026-09-21",
+        "isLocalDir": true,
+        "dirName": "avaliacao_interpares_2sem26_21_09_26",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Guilherme Vergara"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26",
+        "siteLink": "https://avaliacao-interpares-2sem26-21-09-2.vercel.app/"
+    },
+    {
+        "id": "proj_site_competencias_mackmeds_3_7493",
+        "name": "🩺 MackMEDS V4 - Portal Curricular de Competências Médicas (Versão 3)",
+        "description": "Plataforma interativa para consulta, exploração curricular, mapa mental e exportação de relatórios da Matriz de Competências Médicas da Faculdade de Medicina Mackenzie.",
+        "techs": [
+            "HTML5",
+            "Node.js",
+            "React",
+            "Express",
+            "TailwindCSS",
+            "JavaScript",
+            "SQLite",
+            "SQL"
+        ],
+        "creationDate": "2026-09-03",
+        "date": "2026-09-03",
+        "isLocalDir": true,
+        "dirName": "site_competencias_mackmeds_3",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds_tabelinha_prof_2",
+        "siteLink": "https://sitemackenziemackmedstabelinhaprof2.vercel.app/"
     }
 ]

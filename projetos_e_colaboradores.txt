@@ -104,3 +104,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 34. Projeto: 🩺 MackMEDS V4 - Portal Curricular de Competências Médicas
    Colaboradores: Minoru
 ------------------------------------------------------------
+35. Projeto: 📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)
+   Colaboradores: Minoru, Guilherme Vergara
+------------------------------------------------------------
