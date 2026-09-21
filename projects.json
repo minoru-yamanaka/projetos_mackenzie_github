@@ -888,5 +888,29 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mackmeds_tabelinha_prof_2",
         "siteLink": "https://sitemackenziemackmedstabelinhaprof2.vercel.app/"
+    },
+    {
+        "id": "proj_medicina_mackenzie_documentos",
+        "name": "📁 Medicina Mackenzie - Gestão Documental Discente & Cenários de Prática",
+        "description": "Ecossistema oficial de gestão documental comprobatória discente das turmas 1SEM25_T1 e 1SEM26_T2 do curso de Medicina Mackenzie, integrado à nuvem Microsoft 365 / SharePoint Online e conectado à malha territorial das 10 Unidades Básicas de Saúde (UBS).",
+        "techs": [
+            "PowerShell",
+            "Python",
+            "SharePoint",
+            "Excel",
+            "HTML5",
+            "CSS",
+            "JavaScript"
+        ],
+        "creationDate": "2026-09-17",
+        "date": "2026-09-21",
+        "isLocalDir": true,
+        "dirName": "medicina_mackenzie_documentos",
+        "collaborators": [
+            "Minoru Yamanaka",
+            "Guilherme Vergara"
+        ],
+        "repoLink": "",
+        "siteLink": ""
     }
 ]

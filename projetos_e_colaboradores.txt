@@ -107,3 +107,6 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 35. Projeto: 📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)
    Colaboradores: Minoru, Guilherme Vergara
 ------------------------------------------------------------
+36. Projeto: 📁 Medicina Mackenzie - Gestão Documental Discente & Cenários de Prática
+   Colaboradores: Minoru, Guilherme Vergara
+------------------------------------------------------------
