@@ -204,49 +204,6 @@
         "siteLink": ""
     },
     {
-        "id": "proj_academic_intelligence",
-        "name": "Mackenzie Academic Intelligence DB",
-        "description": "Painel inteligente que utiliza análise de dados para gerar insights sobre retenção de alunos, prever taxa de aprovação e recomendar ações preventivas.",
-        "techs": [
-            "Python",
-            "Flask",
-            "Pandas",
-            "Scikit-learn",
-            "React"
-        ],
-        "creationDate": "2026-06-19",
-        "date": "2026-07-13",
-        "isLocalDir": true,
-        "dirName": "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE",
-        "collaborators": [
-            "LILIANE DELORENZI",
-            "GUILHERME VERGARA"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db",
-        "siteLink": "http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io/dashboard-notas/",
-        "lastAccessed": "2026-07-13T17:39:22.941Z"
-    },
-    {
-        "id": "proj_1782836065899",
-        "name": "Portal de Matriculas Mackenzie",
-        "description": "Sistema integrado para realizacao de matriculas online.",
-        "techs": [
-            "Next.js",
-            "TailwindCSS",
-            "Express",
-            "PostgreSQL"
-        ],
-        "creationDate": "2026-06-30",
-        "date": "2026-06-30",
-        "isLocalDir": true,
-        "dirName": "SITE_PORTAL_DE_MATRICULAS_MACKENZIE",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
         "id": "proj_mkt_mack_insta_2898",
         "name": "Dashboard de Marketing | Faculdade Mackenzie",
         "description": "Este projeto é um painel de inteligência de marketing (dashboard) interativo e moderno para consolidação e visualização de dados de mídias sociais e campanhas de tráfego pago da Faculdade de Medicina do  Mackenzie.",
@@ -268,43 +225,6 @@
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_mkt_medicina_mackenzie",
         "siteLink": "https://site-mackenzie-mkt-medicina-mackenz.vercel.app/",
         "lastAccessed": "2026-08-10T17:25:14.449Z"
-    },
-    {
-        "id": "proj_site_avaliacao_360_prototipo_3025",
-        "name": "Avaliacao 360 Prototipo",
-        "description": "Projeto importado automaticamente a partir da pasta local.",
-        "techs": [
-            "Node.js"
-        ],
-        "creationDate": "2026-07-01",
-        "date": "2026-07-01",
-        "isLocalDir": true,
-        "dirName": "SITE_AVALIACAO_360_PROTOTIPO",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara",
-            "Ana Paternez"
-        ],
-        "repoLink": "",
-        "siteLink": ""
-    },
-    {
-        "id": "proj_site_enamed_pesquisa_3065",
-        "name": "Enamed Pesquisa",
-        "description": "Projeto importado automaticamente a partir da pasta local.",
-        "techs": [
-            "Python"
-        ],
-        "creationDate": "2026-07-15",
-        "date": "2026-07-16",
-        "isLocalDir": true,
-        "dirName": "SITE_ENAMED_PESQUISA",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara"
-        ],
-        "repoLink": "",
-        "siteLink": ""
     },
     {
         "id": "proj_site_mackenzie_academic_intelligence_dashboard_3079",
@@ -576,28 +496,6 @@
         "siteLink": "https://site-mackenzie-esafa-estagios-1sem2.vercel.app/"
     },
     {
-        "id": "proj_site_mackenzie_academic_intelligence_dashboard_1645",
-        "name": "🎓 Mackenzie Academic Intelligence Dashboard",
-        "description": "Este repositório contém uma solução acadêmica desenvolvida para otimizar o envio, avaliação e exportação de atividades, além de processar dados de notas para geração de dashboards analíticos. O projeto é dividido em duas partes principais: 1. **Portal de Envio e Gerenciamento de Atividades**: Sistema backend em Node.js com Express e Sequelize para controle de submissões e permissões (Aluno, Professor, Admin).",
-        "techs": [
-            "Node.js",
-            "Express",
-            "JavaScript",
-            "MySQL",
-            "SQL"
-        ],
-        "creationDate": "2026-07-02",
-        "date": "2026-07-22",
-        "isLocalDir": true,
-        "dirName": "SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DASHBOARD",
-        "collaborators": [
-            "Minoru Yamanaka"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_dashboard",
-        "siteLink": "http://u2m74nd8km750rqvfszgqr0n.2.24.106.92.sslip.io/dashboard-notas/",
-        "lastAccessed": "2026-08-31T12:15:07.929Z"
-    },
-    {
         "id": "proj_site_mackenzie_academic_intelligence_db_1707",
         "name": "Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)",
         "description": "Este repositório contém uma aplicação web de alta performance projetada para gerenciar o lançamento, acompanhamento e exportação de dados acadêmicos (alunos, professores, disciplinas, turmas, notas e frequências) da Universidade Mackenzie. [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/minoru-yamanaka/site_mackenzie_academic_intelligence_db) [![Website](https://img.shields.io/badge/Acesso-Site_Online-brightgreen?logo=google-chrome)](http://m1c0t1m5l3qr8cmj2mu1jesu.2.24.106.92.sslip.io)",
@@ -844,28 +742,6 @@
         "siteLink": "https://site-mackenzie-mackmeds-tabelinha-p.vercel.app/"
     },
     {
-        "id": "proj_avaliacao_interpares_2sem26_21_09_26",
-        "name": "📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)",
-        "description": "Portal interativo para análise de desempenho, tríade de competências (Conhecimentos, Habilidades e Atitudes) e feedbacks qualitativos da Avaliação Interpares 2026.2 do curso de Medicina Mackenzie.",
-        "techs": [
-            "JavaScript",
-            "HTML5",
-            "CSS",
-            "Python",
-            "SheetJS"
-        ],
-        "creationDate": "2026-09-21",
-        "date": "2026-09-21",
-        "isLocalDir": true,
-        "dirName": "avaliacao_interpares_2sem26_21_09_26",
-        "collaborators": [
-            "Minoru Yamanaka",
-            "Guilherme Vergara"
-        ],
-        "repoLink": "https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26",
-        "siteLink": "https://avaliacao-interpares-2sem26-21-09-2.vercel.app/"
-    },
-    {
         "id": "proj_site_competencias_mackmeds_3_7493",
         "name": "🩺 MackMEDS V4 - Portal Curricular de Competências Médicas (Versão 3)",
         "description": "Plataforma interativa para consulta, exploração curricular, mapa mental e exportação de relatórios da Matriz de Competências Médicas da Faculdade de Medicina Mackenzie.",
@@ -912,5 +788,81 @@
         ],
         "repoLink": "",
         "siteLink": ""
+    },
+    {
+        "id": "proj_conversao_de_notas_teste_do_progresso_8849",
+        "name": "📊 Sistema de Conversão de Notas & Resultados do Teste do Progresso",
+        "description": "🌐 **Aplicação Online (Vercel):** [https://conversao-de-notas-teste-do-progres.vercel.app/](https://conversao-de-notas-teste-do-progres.vercel.app/) 📁 **Repositório GitHub:**",
+        "techs": [
+            "JavaScript",
+            "Python",
+            "HTML5",
+            "CSS"
+        ],
+        "creationDate": "2026-09-28",
+        "date": "2026-09-28",
+        "isLocalDir": true,
+        "dirName": "conversao_de_notas_teste_do_progresso",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/conversao_de_notas_teste_do_progresso",
+        "siteLink": "https://conversao-de-notas-teste-do-progres.vercel.app/"
+    },
+    {
+        "id": "proj_site_integracao_avaliacoes_8871",
+        "name": "📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)",
+        "description": "Portal interativo para análise de desempenho, tríade de competências (Conhecimentos, Habilidades e Atitudes) e feedbacks qualitativos da **Avaliação Interpares 2026.2**. - 🌐 **Deploy Online (Vercel)**: [https://avaliacao-interpares-2sem26-21-09-2.vercel.app/](https://avaliacao-interpares-2sem26-21-09-2.vercel.app/) - 📂 **Repositório GitHub**: [https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26](https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26)",
+        "techs": [
+            "HTML5",
+            "Python"
+        ],
+        "creationDate": "2026-09-21",
+        "date": "2026-10-27",
+        "isLocalDir": true,
+        "dirName": "site_integracao_avaliacoes",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26",
+        "siteLink": "https://avaliacao-interpares-2sem26-21-09-2.vercel.app/"
+    },
+    {
+        "id": "proj_site_integracao_avaliacoes___backup_2026_10_26_8888",
+        "name": "📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)",
+        "description": "Portal interativo para análise de desempenho, tríade de competências (Conhecimentos, Habilidades e Atitudes) e feedbacks qualitativos da **Avaliação Interpares 2026.2**. - 🌐 **Deploy Online (Vercel)**: [https://avaliacao-interpares-2sem26-21-09-2.vercel.app/](https://avaliacao-interpares-2sem26-21-09-2.vercel.app/) - 📂 **Repositório GitHub**: [https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26](https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26)",
+        "techs": [
+            "HTML5",
+            "Python"
+        ],
+        "creationDate": "2026-10-26",
+        "date": "2026-10-26",
+        "isLocalDir": true,
+        "dirName": "site_integracao_avaliacoes - BACKUP 2026 10 26",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/avaliacao_interpares_2sem26_21_09_26",
+        "siteLink": "https://avaliacao-interpares-2sem26-21-09-2.vercel.app/"
+    },
+    {
+        "id": "proj_site_mackenzie_fcsv_perfis_profissionais_time_8925",
+        "name": "🏥 Organograma Interativo & Perfis Profissionais (FCSV - Mackenzie)",
+        "description": "> **Faculdade de Ciências da Saúde e da Vida (FCSV) • Curso de Medicina & Secretaria Integrada da UA** > **Instituto Presbiteriano Mackenzie (IPM) • Universidade Presbiteriana Mackenzie (UPM)** [![Vercel Deployment](https://img.shields.io/badge/Vercel-Produção%20Online-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sitemackenziefcsvperfisprofissionai.vercel.app/)",
+        "techs": [
+            "JavaScript",
+            "Python",
+            "HTML5",
+            "CSS"
+        ],
+        "creationDate": "2026-09-28",
+        "date": "2026-10-17",
+        "isLocalDir": true,
+        "dirName": "site_mackenzie_fcsv_perfis_profissionais_time",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_fcsv_perfis_profissionais_time",
+        "siteLink": "https://sitemackenziefcsvperfisprofissionai.vercel.app/"
     }
 ]

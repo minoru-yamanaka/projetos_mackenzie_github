@@ -506,8 +506,14 @@ function scanAndSyncLocalFolders() {
         let changed = false;
 
         for (const folderName of localFolders) {
-            const exists = projects.some(p => p.isLocalDir && p.dirName === folderName);
-            if (!exists) {
+            const existingProject = projects.find(p => p.isLocalDir && p.dirName && p.dirName.toLowerCase() === folderName.toLowerCase());
+            if (existingProject) {
+                // Mantém o nome da pasta física sempre alinhado com o disco
+                if (existingProject.dirName !== folderName) {
+                    existingProject.dirName = folderName;
+                    changed = true;
+                }
+            } else {
                 console.log(`Nova pasta de projeto detectada: ${folderName}. Importando...`);
                 const folderPath = path.join(__dirname, folderName);
                 

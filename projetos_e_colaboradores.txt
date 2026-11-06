@@ -3,110 +3,158 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
 ============================================================
 
 1. Projeto: Carômetro Mackenzie
-   Colaboradores: Minoru
+   Pasta: SITE_CAROMETRO
+   Colaboradores: Minoru Yamanaka, Augusto Gottsfritz
 ------------------------------------------------------------
 2. Projeto: Chatbot Mackenzie - Desenvolvimento
-   Colaboradores: Minoru
+   Pasta: SITE_CHATBOT_MACKENZIE_DESENVOLVIMENTO
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
 3. Projeto: Sistema de Correção de Provas
-   Colaboradores: Minoru
+   Pasta: SITE_CORRECAO_DE_PROVAS
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
 4. Projeto: Grade Horária Semanal
-   Colaboradores: Minoru
+   Pasta: SITE_DE_GRADE_HORARIA_SEMANAL_DESENVOLVIMENTO
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
 5. Projeto: Diário Acadêmico Mackenzie
-   Colaboradores: Minoru
+   Pasta: SITE_DIARIO_ACADEMICO_MACKENZIE_DESENVOLVIMENTO - Copia
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
 6. Projeto: Central de Documentos Mackenzie
-   Colaboradores: Minoru
+   Pasta: SITE_DOCUMENTOS
+   Colaboradores: Minoru Yamanaka, Margarete Jesus, Lícia Porfirio
 ------------------------------------------------------------
 7. Projeto: Ambiente de Testes - Documentos
-   Colaboradores: Minoru
+   Pasta: SITE_DOCUMENTOS_TESTES
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
 8. Projeto: Envio de Atividades Acadêmicas
-   Colaboradores: MINORU
+   Pasta: SITE_ENVIO_DE_ATIVIDADES
+   Colaboradores: Minoru Yamanaka, Márcia Soares, Sigisfredo Brenelli
 ------------------------------------------------------------
 9. Projeto: Gerenciador de Impressões Mackenzie
-   Colaboradores: Minoru
+   Pasta: SITE_ENVIO_DE_IMPRESSOES
+   Colaboradores: Minoru Yamanaka, Margarete Jesus, João Tadei
 ------------------------------------------------------------
-10. Projeto: Mackenzie Academic Intelligence DB
-   Colaboradores: LILIANE DELORENZI, GUILHERME VERGARA
+10. Projeto: Dashboard de Marketing | Faculdade Mackenzie
+   Pasta: SITE_DASHBOARD_DE_MARKETING_FACULDADE_MACKENZIE
+   Colaboradores: Minoru Yamanaka, Eduarda Coutinho, Bruno Coutinho
 ------------------------------------------------------------
-11. Projeto: Portal de Matriculas Mackenzie
-   Colaboradores: Minoru
+11. Projeto: 🎓 Mackenzie Academic Intelligence Dashboard - Consome excel
+   Pasta: SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DASHBOARD
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
-12. Projeto: Dashboard de Marketing | Faculdade Mackenzie
-   Colaboradores: Minoru
+12. Projeto: 🏥 Homeostase Mack V4 - Sistema de Gerenciamento & Dashboard de Mecanismos de Homeostase
+   Pasta: site_mackenzie_mecanismos_de_homeostase_db
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara, Gabriel Abreu
 ------------------------------------------------------------
-13. Projeto: Portal de Envio e Gerenciamento de Atividades
-   Colaboradores: Minoru
+13. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
+   Pasta: site_onboard_medicina_mackenzie
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara, Beatriz Coviello, Gabriel Abreu, Enzo Marchi, Eduarda Coutinho, Bruno Coutinho
 ------------------------------------------------------------
-14. Projeto: Avaliacao 360 Prototipo
-   Colaboradores: Minoru
+14. Projeto: Teste de Progresso Consórcio Caipira
+   Pasta: TP_CAIPIRA_MACKENZIE
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara, Viviane Capel
 ------------------------------------------------------------
-15. Projeto: 🏥 MackMEDS V4 - Sistema de Gerenciamento & Dashboard de Competências Médicas
-   Colaboradores: Minoru
+15. Projeto: Dashboard de Marketing | Size Mídias & Fintech
+   Pasta: SITE_DASHBOARD_DE_MARKETING_SIZE_MIDIAS_FINTECH
+   Colaboradores: Minoru Yamanaka, Bruno Coutinho, Eduarda Coutinho
 ------------------------------------------------------------
-16. Projeto: Enamed Pesquisa
-   Colaboradores: Minoru
+16. Projeto: Portal de Envio e Gerenciamento de Atividades
+   Pasta: SITE_AVALIACAO_360
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-17. Projeto: 🎓 Mackenzie Academic Intelligence Dashboard
-   Colaboradores: Minoru
+17. Projeto: 🏥 MackMEDS V4 - Sistema de Gerenciamento & Dashboard de Competências Médicas
+   Pasta: site_competencias_mackmeds
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara, Pedro Hauy
 ------------------------------------------------------------
-18. Projeto: Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)
-   Colaboradores: Minoru
+18. Projeto: Portal de Envio e Gerenciamento de Atividades
+   Pasta: SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DB - Copia
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-19. Projeto: Portal de Envio e Gerenciamento de Atividades
-   Colaboradores: Minoru
+19. Projeto: Teste de Progresso Consórcio Caipira DB
+   Pasta: TP_CAIPIRA_MACKENZIE_DB
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara, Viviane Capel
 ------------------------------------------------------------
-20. Projeto: 🏥 Homeostase Mack V4 - Sistema de Gerenciamento & Dashboard de Mecanismos de Homeostase
-   Colaboradores: Minoru
+20. Projeto: Avaliacao 360 Prototipo
+   Pasta: SITE_AVALIACAO_360_prototipo
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-21. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
-   Colaboradores: Minoru
+21. Projeto: Enamed Pesquisa
+   Pasta: site_enamed_pesquisa
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-22. Projeto: Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)
-   Colaboradores: Minoru
+22. Projeto: Dashboard de Recorrência de Palavras - ESAFA Mackenzie
+   Pasta: atividades_esafa_alunos_1_sem_26
+   Colaboradores: Minoru Yamanaka, Márcia Soares
 ------------------------------------------------------------
-23. Projeto: Dashboard MACKENZIE — Teste de Progresso Consórcio Caipira (SP3 2026)
-   Colaboradores: Minoru
+23. Projeto: Mackenzie Academic Intelligence Database (Portal de Dashboard de Notas)
+   Pasta: SITE_MACKENZIE_ACADEMIC_INTELLIGENCE_DB
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-24. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
-   Colaboradores: Minoru
+24. Projeto: Dashboard Calendário — Mackenzie Medicina
+   Pasta: site_calendario_mackenzie_medicina
+   Colaboradores: Minoru Yamanaka, João Tadei, Gabriel Abreu
 ------------------------------------------------------------
-25. Projeto: Mapa Mental Interativo — Onboarding de Medicina Mackenzie
-   Colaboradores: Minoru
+25. Projeto: 🗓️ Sistema de Agendamento de Feedback aos Alunos — Mackenzie
+   Pasta: site_fomulario_professores_feedback
+   Colaboradores: Minoru Yamanaka, Viviane Capel, Enzo Marchi, Guilherme Vergara
 ------------------------------------------------------------
-26. Projeto: Dashboard de Recorrência de Palavras - ESAFA Mackenzie
-   Colaboradores: Minoru
+26. Projeto: MackTeam Alloc — Dashboard de Alocação de Equipe (CCBS Medicina - UPM)
+   Pasta: site_dashboard_alocacao_equipe_mackteam_allo
+   Colaboradores: Minoru Yamanaka, Margarete Jesus
 ------------------------------------------------------------
-27. Projeto: Dashboard de Escalas e Métricas — Mackenzie Medicina
-   Colaboradores: Minoru
+27. Projeto: 📊 Dashboard de NPS - Medicina Mackenzie Alphaville
+   Pasta: site_nps_mackenzie_2sem26
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
-28. Projeto: MackTeam Alloc — Dashboard de Alocação de Equipe (CCBS Medicina - UPM)
-   Colaboradores: Minoru
+28. Projeto: Gerador de Declarações - Curso de Medicina Mackenzie Barueri
+   Pasta: site_gerador_de_declaracao_mackenzie
+   Colaboradores: Minoru Yamanaka, Gabriel Abreu
 ------------------------------------------------------------
-29. Projeto: Dashboard de NPS — Medicina Mackenzie Alphaville
-   Colaboradores: Minoru, Guilherme Vergara
+29. Projeto: Carômetro | Faculdade de Medicina Mackenzie 🎓⚕️
+   Pasta: site_carometro_medicina_mackenzie
+   Colaboradores: Minoru Yamanaka, Gabriel Abreu
 ------------------------------------------------------------
-30. Projeto: Gerador de Declarações - Curso de Medicina Mackenzie Barueri
-   Colaboradores: Minoru, Gabriel Abreu
+30. Projeto: Requisição para Aula Prática - Medicina Mackenzie Alphaville
+   Pasta: site_formulario_requisicao_aula_pratica_laboratório
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-31. Projeto: Carômetro | Faculdade de Medicina Mackenzie 🎓⚕️
-   Colaboradores: Minoru, Gabriel Abreu
+31. Projeto: Validador de Equivalência Curricular - Medicina Mackenzie
+   Pasta: site_transferencia_e_a_equivalencia
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
-32. Projeto: Validador de Equivalência Curricular - Medicina Mackenzie
-   Colaboradores: Minoru, Guilherme Vergara
+32. Projeto: Sistema de Gestão de Monitorias Acadêmicas - Faculdade de Medicina Mackenzie
+   Pasta: site_monitoria_da_faculdade_de_medicina_mackenzie
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
-33. Projeto: Sistema de Gestão de Monitorias Acadêmicas - Faculdade de Medicina Mackenzie
-   Colaboradores: Minoru, Guilherme Vergara
+33. Projeto: 🩺 MackMEDS V4 - Portal Curricular de Competências Médicas
+   Pasta: site_competencias_mackmeds_2
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-34. Projeto: 🩺 MackMEDS V4 - Portal Curricular de Competências Médicas
-   Colaboradores: Minoru
+34. Projeto: 🩺 MackMEDS V4 - Portal Curricular de Competências Médicas (Versão 3)
+   Pasta: site_competencias_mackmeds_3
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
-35. Projeto: 📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)
-   Colaboradores: Minoru, Guilherme Vergara
+35. Projeto: 📁 Medicina Mackenzie - Gestão Documental Discente & Cenários de Prática
+   Pasta: medicina_mackenzie_documentos
+   Colaboradores: Minoru Yamanaka, Guilherme Vergara
 ------------------------------------------------------------
-36. Projeto: 📁 Medicina Mackenzie - Gestão Documental Discente & Cenários de Prática
-   Colaboradores: Minoru, Guilherme Vergara
+36. Projeto: 📊 Sistema de Conversão de Notas & Resultados do Teste do Progresso
+   Pasta: conversao_de_notas_teste_do_progresso
+   Colaboradores: Minoru Yamanaka
+------------------------------------------------------------
+37. Projeto: 📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)
+   Pasta: site_integracao_avaliacoes
+   Colaboradores: Minoru Yamanaka
+------------------------------------------------------------
+38. Projeto: 📊 Portal de Avaliação Interpares 2026.2 | Aprendizagem Baseada em Problemas (PBL)
+   Pasta: site_integracao_avaliacoes - BACKUP 2026 10 26
+   Colaboradores: Minoru Yamanaka
+------------------------------------------------------------
+39. Projeto: 🏥 Organograma Interativo & Perfis Profissionais (FCSV - Mackenzie)
+   Pasta: site_mackenzie_fcsv_perfis_profissionais_time
+   Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
