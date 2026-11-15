@@ -864,5 +864,25 @@
         ],
         "repoLink": "https://github.com/minoru-yamanaka/site_mackenzie_fcsv_perfis_profissionais_time",
         "siteLink": "https://sitemackenziefcsvperfisprofissionai.vercel.app/"
+    },
+    {
+        "id": "proj_site_sistema_integrado_de_atas_9281",
+        "name": "SIGA-NDE • Sistema Integrado de Atas Acadêmicas e Evidências (NDE e Colegiados)",
+        "description": "Sistema de elaboração, validação e padronização de Atas de Reuniões de Núcleos Docentes Estruturantes (NDE) e Colegiados de Curso da Universidade Presbiteriana Mackenzie (UPM), alinhado às diretrizes da Pró-Reitoria de Graduação (PRGA), Instrução Normativa IN-RE-102/2026 e aos novos instrumentos de avaliação do MEC/INEP.",
+        "techs": [
+            "JavaScript",
+            "HTML5",
+            "CSS",
+            "Python"
+        ],
+        "creationDate": "2026-11-14",
+        "date": "2026-11-14",
+        "isLocalDir": true,
+        "dirName": "site_sistema_integrado_de_atas_e_evidencias_academicas _nde_e_colegiados",
+        "collaborators": [
+            "Minoru Yamanaka"
+        ],
+        "repoLink": "https://github.com/minoru-yamanaka/site_sistema_integrado_de_atas_e_evidencias_academicas_nde_e_colegiados](https://github.com/minoru-yamanaka/site_sistema_integrado_de_atas_e_evidencias_academicas_nde_e_colegiados",
+        "siteLink": "https://sitesistemaintegradodeataseevidenci.vercel.app/"
     }
 ]

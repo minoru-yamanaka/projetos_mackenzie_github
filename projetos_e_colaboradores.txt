@@ -158,3 +158,7 @@ LISTA DE PROJETOS E SEUS COLABORADORES - MACKENZIE
    Pasta: site_mackenzie_fcsv_perfis_profissionais_time
    Colaboradores: Minoru Yamanaka
 ------------------------------------------------------------
+40. Projeto: SIGA-NDE • Sistema Integrado de Atas Acadêmicas e Evidências (NDE e Colegiados)
+   Pasta: site_sistema_integrado_de_atas_e_evidencias_academicas _nde_e_colegiados
+   Colaboradores: Minoru Yamanaka
+------------------------------------------------------------
